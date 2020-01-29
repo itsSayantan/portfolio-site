@@ -1,33 +1,17 @@
 import React from 'react';
 
-import {
-    LoaderAreaStyleType,
-    LoaderBarStyleType,
-    MainLoaderPropsType
-} from './model';
+import { LoaderAreaStyleType, LoaderBarStyleType } from './model';
 
 import './MainLoader.scss';
 
-const MainLoader = (props: MainLoaderPropsType) => {
-    const loaderAreaStyle: LoaderAreaStyleType = {};
-    const loaderBarStyle: LoaderBarStyleType = {};
-
-    if (props?.loaderAreaBackgroundColor) {
-        loaderAreaStyle['backgroundColor'] = props.loaderAreaBackgroundColor;
-    }
-
-    if (props?.loaderHeight) {
-        loaderAreaStyle['height'] = props.loaderHeight;
-    }
-
-    if (props?.loaderBarBackgroundColor) {
-        loaderBarStyle['backgroundColor'] = props.loaderBarBackgroundColor;
-    }
-
-    if (props?.loaderBarShadowColor) {
-        loaderBarStyle['boxShadow'] =
-            '0 0 1px 1px ' + props.loaderBarBackgroundColor;
-    }
+const MainLoader = (props: LoaderAreaStyleType & LoaderBarStyleType) => {
+    const loaderAreaStyle = {
+        backgroundColor: props.loaderAreaBackgroundColor || '#efefef'
+    };
+    const loaderBarStyle = {
+        backgroundColor: props.loaderBarBackgroundColor || 'coral',
+        boxShadow: props.loaderBarBoxShadow || '0 0 1px 1px #777888'
+    };
 
     return (
         <div className="global-mainloader-wrapper" style={loaderAreaStyle}>
