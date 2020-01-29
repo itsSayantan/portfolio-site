@@ -1,25 +1,28 @@
-.global-mainloader-wrapper {
+.mainloader-wrapper {
     width: 100%;
     overflow: hidden;
     height: 2px;
     background-color: #efefef;
 }
 
-.global-mainloader-loader {
+.mainloader-loader {
     position: relative;
     width: 45%;
     height: 100%;
     margin-left: 0;
-    background-color: coral;
+    background-color: darkcyan;
     box-shadow: 0 0 1px 1px #d68e30;
-    animation: 2s linear move-loader infinite;
+    animation: 2s linear 0s move-loader infinite;
 }
 
 @keyframes move-loader {
-    from {
+    0% {
         margin-left: 0;
     }
-    to {
-        margin-left: 100%;
+    50% {
+        margin-left: 55%;
+    }
+    100% {
+        margin-left: 0;
     }
 }

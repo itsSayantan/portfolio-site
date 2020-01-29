@@ -9,16 +9,13 @@ const MainLoader = (props: LoaderAreaStyleType & LoaderBarStyleType) => {
         backgroundColor: props.loaderAreaBackgroundColor || '#efefef'
     };
     const loaderBarStyle = {
-        backgroundColor: props.loaderBarBackgroundColor || 'coral',
+        backgroundColor: props.loaderBarBackgroundColor || 'darkcyan',
         boxShadow: props.loaderBarBoxShadow || '0 0 1px 1px #777888'
     };
 
     return (
-        <div className="global-mainloader-wrapper" style={loaderAreaStyle}>
-            <div
-                className="global-mainloader-loader"
-                style={loaderBarStyle}
-            ></div>
+        <div className="mainloader-wrapper" style={loaderAreaStyle}>
+            <div className="mainloader-loader" style={loaderBarStyle}></div>
         </div>
     );
 };
