@@ -3,4 +3,5 @@ export type ContentLoadingIndicatorPropsType = {
     height?: string;
     backgroundColor?: string;
     borderRadius?: string;
+    marginBottom?: string;
 };
