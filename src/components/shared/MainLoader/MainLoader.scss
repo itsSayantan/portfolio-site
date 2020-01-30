@@ -15,7 +15,7 @@
     margin-left: 0;
     background-color: darkcyan;
     box-shadow: 0 0 1px 1px #d68e30;
-    animation: 2s linear 0s move-loader infinite;
+    animation: 2.5s ease-in-out 0s move-loader infinite;
 }
 
 @keyframes move-loader {
