@@ -4,6 +4,7 @@ const AsyncChunkNames = require('webpack-async-chunk-names-plugin');
 
 const path = require('path');
 
+const PROJECT_ROOT_PATH = '../'
 const REACT_BASE_PATH = '../src/';
 const REACT_DEV_SERVER_OUTPUT_PATH = path.resolve(__dirname, '../public/');
 const REACT_OUTPUT_PATH = path.resolve(__dirname, '../dist/');
@@ -14,6 +15,7 @@ module.exports = {
     resolve: {
         extensions: ['.ts', '.tsx', '.js'],
         alias: {
+            '@Images': path.resolve(__dirname, PROJECT_ROOT_PATH, 'images'),
             '@Components': path.resolve(
                 __dirname,
                 REACT_BASE_PATH,
@@ -63,6 +65,12 @@ module.exports = {
                 test: /\.tsx{0,1}$/,
                 exclude: /\.test\.tsx{0,1}$/,
                 use: ['ts-loader']
+            },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: [
+                    'file-loader',
+                ],
             }
         ]
     },
