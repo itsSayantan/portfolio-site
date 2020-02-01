@@ -14,8 +14,6 @@ const MobileMenu = (props: MobileMenuPropsType) => {
                 <img
                     src={CloseButton}
                     alt="Close Button"
-                    width="16px"
-                    height="16px"
                 />
             </div>
             <div className="mobile-menu-item-container">

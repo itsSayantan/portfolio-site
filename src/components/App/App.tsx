@@ -18,7 +18,7 @@ const App: React.FC = (props: any) => {
         <BrowserRouter>
             <MainHeader />
             <MainLoader />
-            <MobileMenu menuItems={menuItems} open={false} />
+            {/* <MobileMenu menuItems={menuItems} open={false} /> */}
             <React.Suspense fallback={<h3>Loading...</h3>}>
                 <Switch>
                     <Route path="/" component={About} />
