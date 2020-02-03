@@ -7,23 +7,34 @@ import MainLoader from '@Components/shared/MainLoader/MainLoader';
 import MobileMenu from '@Components/MobileMenu/MobileMenu';
 import MainHeader from '@Components/MainHeader/MainHeader';
 
+import { reducer } from '@Shared/reducers/AppReducer';
+import { getInitialStateValues } from '@Shared/reducers/factory';
+import { AppContext } from '@Shared/contexts/AppContext';
+
 const About = React.lazy(() => import('@Components/About/About'));
 
 const App: React.FC = (props: any) => {
+    const [state, dispatch] = React.useReducer(
+        reducer,
+        getInitialStateValues()
+    );
+
     const menuItems = [
         { text: 'About', link: '/' },
         { text: 'Projects', link: '/projects' }
     ];
     return (
         <BrowserRouter>
-            <MainHeader />
-            <MainLoader />
-            {/* <MobileMenu menuItems={menuItems} open={false} /> */}
-            <React.Suspense fallback={<h3>Loading...</h3>}>
-                <Switch>
-                    <Route path="/" component={About} />
-                </Switch>
-            </React.Suspense>
+            <AppContext.Provider value={{ ...state, dispatch }}>
+                <MainHeader />
+                <MainLoader />
+                {/* <MobileMenu menuItems={menuItems} open={false} /> */}
+                <React.Suspense fallback={<h3>Loading...</h3>}>
+                    <Switch>
+                        <Route path="/" component={About} />
+                    </Switch>
+                </React.Suspense>
+            </AppContext.Provider>
         </BrowserRouter>
     );
 };

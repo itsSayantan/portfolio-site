@@ -1,22 +1,39 @@
 import React from 'react';
 
-import { LoaderAreaStyleType, LoaderBarStyleType } from './model';
+import { AppContextType } from '@Shared/types/others';
+import { AppContext } from '@Shared/contexts/AppContext';
 
 import './MainLoader.scss';
 
-const MainLoader = (props: LoaderAreaStyleType & LoaderBarStyleType) => {
-    const loaderAreaStyle = {
-        backgroundColor: props.loaderAreaBackgroundColor || '#efefef'
-    };
-    const loaderBarStyle = {
-        backgroundColor: props.loaderBarBackgroundColor || 'darkcyan',
-        boxShadow: props.loaderBarBoxShadow || '0 0 1px 1px #777888'
-    };
+// The default styling for this component will be taken from the global state
 
+const MainLoader = () => {
     return (
-        <div className="mainloader-wrapper" style={loaderAreaStyle}>
-            <div className="mainloader-loader" style={loaderBarStyle}></div>
-        </div>
+        <AppContext.Consumer>
+            {(appContext: AppContextType) => {
+                const loaderAreaStyle = {
+                    backgroundColor:
+                        appContext?.AppTheme?.MainLoader
+                            ?.loaderAreaBackgroundColor
+                };
+                const loaderBarStyle = {
+                    backgroundColor:
+                        appContext?.AppTheme?.MainLoader
+                            ?.loaderBarBackgroundColor,
+                    boxShadow:
+                        appContext?.AppTheme?.MainLoader?.loaderBarBoxShadow
+                };
+
+                return (
+                    <div className="mainloader-wrapper" style={loaderAreaStyle}>
+                        <div
+                            className="mainloader-loader"
+                            style={loaderBarStyle}
+                        ></div>
+                    </div>
+                );
+            }}
+        </AppContext.Consumer>
     );
 };
 
