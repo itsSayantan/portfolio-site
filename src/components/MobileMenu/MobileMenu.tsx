@@ -13,14 +13,15 @@ const MobileMenu = () => {
     return (
         <AppContext.Consumer>
             {(appContext: AppContextType) => {
+                const mobileMenuState = appContext?.state?.AppTheme?.MobileMenu;
                 return (
                     <div
                         className="mobile-menu-wrapper"
                         style={{
-                            display: appContext?.state?.AppTheme?.MobileMenu
-                                ?.open
-                                ? 'flex'
-                                : 'none'
+                            display: mobileMenuState?.open ? 'flex' : 'none',
+                            backgroundColor:
+                                mobileMenuState?.menuStyles?.wrapper
+                                    ?.backgroundColor
                         }}
                     >
                         <div
@@ -30,12 +31,33 @@ const MobileMenu = () => {
                                     type: closeMobileMenuAction
                                 })
                             }
+                            style={{
+                                color:
+                                    mobileMenuState?.menuStyles?.closeButton
+                                        ?.color
+                            }}
                         >
                             <img src={CloseButton} alt="Close Button" />
                         </div>
                         <div className="mobile-menu-item-container">
-                            <div className="mobile-menu-item">
-                                <Link to="/">About</Link>
+                            <div
+                                className="mobile-menu-item"
+                                style={{
+                                    borderBottom:
+                                        mobileMenuState?.menuStyles?.item
+                                            ?.borderBottom
+                                }}
+                            >
+                                <Link
+                                    to="/"
+                                    style={{
+                                        color:
+                                            mobileMenuState?.menuStyles?.item
+                                                ?.color
+                                    }}
+                                >
+                                    About
+                                </Link>
                             </div>
                             <div className="mobile-menu-item">
                                 <Link to="/projects">Projects</Link>

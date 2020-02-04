@@ -23,4 +23,16 @@ export type MenuItem = {
 export type MobileMenuPropsType = {
     menuItems: Array<MenuItem>;
     open: boolean;
+    menuStyles: {
+        wrapper: {
+            backgroundColor: string;
+        };
+        item: {
+            color: string;
+            borderBottom: string;
+        };
+        closeButton: {
+            color: string;
+        };
+    };
 };

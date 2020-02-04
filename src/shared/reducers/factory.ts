@@ -20,7 +20,19 @@ export function getInitialStateValues(): StateType {
                     { text: 'About', link: '/' },
                     { text: 'Projects', link: '/projects' }
                 ],
-                open: false
+                open: false,
+                menuStyles: {
+                    wrapper: {
+                        backgroundColor: '#589dd0'
+                    },
+                    item: {
+                        color: '#fff',
+                        borderBottom: '1px solid #fff'
+                    },
+                    closeButton: {
+                        color: '#fff'
+                    }
+                }
             }
         }
     };
