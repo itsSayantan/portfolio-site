@@ -13,15 +13,16 @@ const MainLoader = () => {
             {(appContext: AppContextType) => {
                 const loaderAreaStyle = {
                     backgroundColor:
-                        appContext?.AppTheme?.MainLoader
+                        appContext?.state?.AppTheme?.MainLoader
                             ?.loaderAreaBackgroundColor
                 };
                 const loaderBarStyle = {
                     backgroundColor:
-                        appContext?.AppTheme?.MainLoader
+                        appContext?.state?.AppTheme?.MainLoader
                             ?.loaderBarBackgroundColor,
                     boxShadow:
-                        appContext?.AppTheme?.MainLoader?.loaderBarBoxShadow
+                        appContext?.state?.AppTheme?.MainLoader
+                            ?.loaderBarBoxShadow
                 };
 
                 return (

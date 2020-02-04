@@ -14,6 +14,13 @@ export function getInitialStateValues(): StateType {
                 backgroundColor: 'rgba(205, 205, 205, 0.42)',
                 borderRadius: '0',
                 marginBottom: '10px'
+            },
+            MobileMenu: {
+                menuItems: [
+                    { text: 'About', link: '/' },
+                    { text: 'Projects', link: '/projects' }
+                ],
+                open: false
             }
         }
     };

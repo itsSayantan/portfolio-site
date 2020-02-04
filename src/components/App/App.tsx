@@ -19,16 +19,12 @@ const App: React.FC = (props: any) => {
         getInitialStateValues()
     );
 
-    const menuItems = [
-        { text: 'About', link: '/' },
-        { text: 'Projects', link: '/projects' }
-    ];
     return (
         <BrowserRouter>
-            <AppContext.Provider value={{ ...state, dispatch }}>
+            <AppContext.Provider value={{ state, dispatch }}>
                 <MainHeader />
                 <MainLoader />
-                {/* <MobileMenu menuItems={menuItems} open={false} /> */}
+                <MobileMenu />
                 <React.Suspense fallback={<h3>Loading...</h3>}>
                     <Switch>
                         <Route path="/" component={About} />

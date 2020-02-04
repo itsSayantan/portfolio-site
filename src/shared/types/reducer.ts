@@ -1,13 +1,15 @@
 import {
     ContentLoadingIndicatorPropsType,
     LoaderAreaStyleType,
-    LoaderBarStyleType
+    LoaderBarStyleType,
+    MobileMenuPropsType
 } from '@Shared/types/props';
 
 export type StateType = {
     AppTheme: {
         MainLoader: LoaderAreaStyleType & LoaderBarStyleType;
         ContentLoadingIndicator: ContentLoadingIndicatorPropsType;
+        MobileMenu: MobileMenuPropsType;
     };
 };
 export type ActionType = {

@@ -16,21 +16,23 @@ const ContentLoadingIndicator = (props: ContentLoadingIndicatorPropsType) => {
                 const style = {
                     width:
                         props?.width ||
-                        appContext?.AppTheme?.ContentLoadingIndicator?.width,
+                        appContext?.state?.AppTheme?.ContentLoadingIndicator
+                            ?.width,
                     height:
                         props?.height ||
-                        appContext?.AppTheme?.ContentLoadingIndicator?.height,
+                        appContext?.state?.AppTheme?.ContentLoadingIndicator
+                            ?.height,
                     backgroundColor:
                         props?.backgroundColor ||
-                        appContext?.AppTheme?.ContentLoadingIndicator
+                        appContext?.state?.AppTheme?.ContentLoadingIndicator
                             ?.backgroundColor,
                     borderRadius:
                         props?.borderRadius ||
-                        appContext?.AppTheme?.ContentLoadingIndicator
+                        appContext?.state?.AppTheme?.ContentLoadingIndicator
                             ?.borderRadius,
                     marginBottom:
                         props?.marginBottom ||
-                        appContext?.AppTheme?.ContentLoadingIndicator
+                        appContext?.state?.AppTheme?.ContentLoadingIndicator
                             ?.marginBottom
                 };
                 return (

@@ -1,3 +1,6 @@
 import { StateType, ActionType } from '@Shared/reducers/AppReducer';
 
-export type AppContextType = StateType & React.Dispatch<ActionType>;
+export type AppContextType = {
+    state: StateType;
+    dispatch: React.Dispatch<ActionType>;
+};
