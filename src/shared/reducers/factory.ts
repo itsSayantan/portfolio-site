@@ -33,6 +33,16 @@ export function getInitialStateValues(): StateType {
                         color: '#fff'
                     }
                 }
+            },
+            MainHeader: {
+                headerStyles: {
+                    backgroundColor: '#fff',
+                    color: '#589dd0'
+                },
+                menuItems: [
+                    { text: 'About', link: '/' },
+                    { text: 'Projects', link: '/projects' }
+                ]
             }
         }
     };

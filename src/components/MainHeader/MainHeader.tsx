@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { AppContext } from '@Shared/contexts/AppContext';
 import { AppContextType } from '@Shared/types/others';
@@ -11,17 +12,58 @@ const MainHeader = () => {
     return (
         <AppContext.Consumer>
             {(appContext: AppContextType) => {
+                const mainHeaderStyles =
+                    appContext?.state?.AppTheme?.MainHeader?.headerStyles;
+
+                const wrapperStyle = {
+                    backgroundColor: mainHeaderStyles?.backgroundColor
+                };
+
+                const dotStyle = {
+                    backgroundColor: mainHeaderStyles?.color
+                };
+
+                const menuNavItems = appContext?.state?.AppTheme?.MainHeader?.menuItems.map(
+                    m => {
+                        return (
+                            <Link
+                                className="menu-nav-item"
+                                to={m?.link}
+                                style={{
+                                    color: mainHeaderStyles?.color,
+                                    textDecoration: 'none'
+                                }}
+                            >
+                                {m?.text}
+                            </Link>
+                        );
+                    }
+                );
                 return (
                     <div className="main-header-wrapper">
-                        <button
+                        <div
+                            className="menu-button-wrapper"
                             onClick={() =>
                                 appContext?.dispatch({
                                     type: openMobileMenuAction
                                 })
                             }
+                            style={wrapperStyle}
                         >
-                            Open MobileMenu
-                        </button>
+                            <div
+                                className="menu-button-dot"
+                                style={dotStyle}
+                            ></div>
+                            <div
+                                className="menu-button-dot"
+                                style={dotStyle}
+                            ></div>
+                            <div
+                                className="menu-button-dot"
+                                style={dotStyle}
+                            ></div>
+                        </div>
+                        <div className="menu-nav-wrapper">{menuNavItems}</div>
                     </div>
                 );
             }}

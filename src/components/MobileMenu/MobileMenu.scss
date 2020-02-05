@@ -14,8 +14,8 @@
 
 .mobile-menu-close-button {
     position: absolute;
-    top: 25px;
-    right: 25px;
+    top: 15px;
+    right: calc(5% - 6px); /* this offset is intentional */
     width: 20px;
     height: 20px;
     color: #fff;

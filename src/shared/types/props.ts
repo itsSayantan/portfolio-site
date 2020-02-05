@@ -36,3 +36,11 @@ export type MobileMenuPropsType = {
         };
     };
 };
+
+export type MainHeaderPropsType = {
+    headerStyles: {
+        backgroundColor: string;
+        color: string;
+    };
+    menuItems: Array<MenuItem>;
+};
