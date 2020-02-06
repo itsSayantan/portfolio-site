@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import ContentLoadingIndicator from '@Components/shared/ContentLoadingIndicator/ContentLoadingIndicator';
+
 import { AppContext } from '@Shared/contexts/AppContext';
 import { AppContextType } from '@Shared/types/others';
 
@@ -41,6 +43,18 @@ const MainHeader = () => {
                 );
                 return (
                     <div className="main-header-wrapper">
+                        <div className="main-header-left-content">
+                            <div className="main-header-left-content-image">
+                                <ContentLoadingIndicator
+                                    borderRadius="100%"
+                                    height="100%"
+                                    marginBottom="0"
+                                />
+                            </div>
+                            <div className="main-header-left-content-text">
+                                Sayantan Ghosh
+                            </div>
+                        </div>
                         <div
                             className="menu-button-wrapper"
                             onClick={() =>
