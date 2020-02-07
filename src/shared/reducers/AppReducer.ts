@@ -2,6 +2,10 @@ import { StateType, ActionType } from '@Shared/types/reducer';
 
 import { openMobileMenuAction, closeMobileMenuAction } from '@Shared/constants';
 
+const createInitialState = (initialState: StateType) => {
+    return initialState;
+};
+
 const reducer = (state: StateType, action: ActionType): StateType => {
     switch (action?.type) {
         case openMobileMenuAction: {
@@ -33,4 +37,4 @@ const reducer = (state: StateType, action: ActionType): StateType => {
     }
 };
 
-export { reducer, StateType, ActionType };
+export { reducer, StateType, ActionType, createInitialState };

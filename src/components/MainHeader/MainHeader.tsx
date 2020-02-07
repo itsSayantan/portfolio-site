@@ -26,7 +26,7 @@ const MainHeader = () => {
                 };
 
                 const menuNavItems = appContext?.state?.AppTheme?.MainHeader?.menuItems.map(
-                    m => {
+                    (m, i) => {
                         return (
                             <Link
                                 className="menu-nav-item"
@@ -35,6 +35,7 @@ const MainHeader = () => {
                                     color: mainHeaderStyles?.color,
                                     textDecoration: 'none'
                                 }}
+                                key={i}
                             >
                                 {m?.text}
                             </Link>
