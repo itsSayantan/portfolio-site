@@ -4,7 +4,7 @@ const AsyncChunkNames = require('webpack-async-chunk-names-plugin');
 
 const path = require('path');
 
-const PROJECT_ROOT_PATH = '../'
+const PROJECT_ROOT_PATH = '../';
 const REACT_BASE_PATH = '../src/';
 const REACT_DEV_SERVER_OUTPUT_PATH = path.resolve(__dirname, '../public/');
 const REACT_OUTPUT_PATH = path.resolve(__dirname, '../dist/');
@@ -67,10 +67,8 @@ module.exports = {
                 use: ['ts-loader']
             },
             {
-                test: /\.(png|svg|jpg|gif)$/,
-                use: [
-                    'file-loader',
-                ],
+                test: /\.(svg|jpeg)$/,
+                use: ['file-loader']
             }
         ]
     },

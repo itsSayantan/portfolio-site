@@ -5,8 +5,9 @@ import ContentLoadingIndicator from '@Components/shared/ContentLoadingIndicator/
 
 import { AppContext } from '@Shared/contexts/AppContext';
 import { AppContextType } from '@Shared/types/others';
-
 import { openMobileMenuAction } from '@Shared/constants';
+
+import Small from '@Images/small-image.jpeg';
 
 import './MainHeader.scss';
 
@@ -45,12 +46,20 @@ const MainHeader = () => {
                 return (
                     <div className="main-header-wrapper">
                         <div className="main-header-left-content">
-                            <div className="main-header-left-content-image">
+                            <div className="main-header-left-content-image-area">
                                 <ContentLoadingIndicator
                                     borderRadius="100%"
                                     height="100%"
                                     marginBottom="0"
-                                />
+                                >
+                                    <img
+                                        src={Small}
+                                        alt="Sayantan Ghosh Small Image"
+                                        width="100%"
+                                        height="100%"
+                                        className="main-header-left-content-image"
+                                    />
+                                </ContentLoadingIndicator>
                             </div>
                             <div className="main-header-left-content-text">
                                 Sayantan Ghosh

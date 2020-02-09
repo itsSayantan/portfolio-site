@@ -13,6 +13,7 @@ export type ContentLoadingIndicatorPropsType = {
     backgroundColor?: string;
     borderRadius?: string;
     marginBottom?: string;
+    children?: JSX.Element;
 };
 
 export type MenuItem = {

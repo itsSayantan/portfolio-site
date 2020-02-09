@@ -18,10 +18,16 @@
     align-items: center;
 }
 
-.main-header-left-content-image {
+.main-header-left-content-image-area {
     width: 26px;
     height: 26px;
     margin-right: 10px;
+}
+
+.main-header-left-content-image {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
 }
 
 .main-header-left-content-text {

@@ -39,7 +39,9 @@ const ContentLoadingIndicator = (props: ContentLoadingIndicatorPropsType) => {
                     <div
                         className="content-loading-indicator-wrapper"
                         style={style}
-                    ></div>
+                    >
+                        {props?.children}
+                    </div>
                 );
             }}
         </AppContext.Consumer>
