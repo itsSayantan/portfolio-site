@@ -2,6 +2,7 @@ import React from 'react';
 
 import MainLayout from '@Components/MainLayout/MainLayout';
 import ContentLoadingIndicator from '@Components/shared/ContentLoadingIndicator/ContentLoadingIndicator';
+import PageTitle from '@Components/PageTitle/PageTitle';
 
 import Big from '@Images/big-image.jpeg';
 import LinkedIn from '@Images/linkedin.svg';
@@ -9,27 +10,13 @@ import Github from '@Images/github.svg';
 
 import './About.scss';
 
-const AboutContentLoadingOverlay = () => {
-    return (
-        <>
-            <ContentLoadingIndicator
-                width="50px"
-                height="50px"
-                borderRadius="100%"
-                marginBottom="15px"
-            />
-            <ContentLoadingIndicator />
-            <ContentLoadingIndicator />
-        </>
-    );
-};
-
 const About = (props: any) => {
     return (
         <>
             <MainLayout>
                 <>
                     <div className="about-wrapper">
+                        <PageTitle text="About" />
                         <div className="about-image-area">
                             <ContentLoadingIndicator
                                 width="100%"
