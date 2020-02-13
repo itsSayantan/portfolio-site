@@ -43,6 +43,14 @@ export function getInitialStateValues(): StateType {
                     { text: 'About', link: '/' },
                     { text: 'Projects', link: '/projects' }
                 ]
+            },
+            About: {
+                aboutStyles: {
+                    pageTitle: {
+                        color: 'rgb(0, 83, 144)',
+                        fontSize: '2rem'
+                    }
+                }
             }
         }
     };

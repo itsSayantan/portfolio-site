@@ -12,13 +12,17 @@ const PageTitle = (props: PageTitlePropsType) => {
     if (props?.children) {
         content = props?.children;
     } else if (props?.text) {
-        content = <div>{props?.text}</div>;
+        content = (
+            <div style={{ color: props?.textColor, fontSize: props?.fontSize }}>
+                {props?.text}
+            </div>
+        );
     } else {
         throw new Error(
             `PageTitle component needs a 'text' or a 'chidlren' prop`
         );
     }
-    return <p>{content}</p>;
+    return <>{content}</>;
 };
 
 export default PageTitle;

@@ -45,3 +45,12 @@ export type MainHeaderPropsType = {
     };
     menuItems: Array<MenuItem>;
 };
+
+export type AboutPropsType = {
+    aboutStyles: {
+        pageTitle: {
+            color: string;
+            fontSize: string;
+        };
+    };
+};
