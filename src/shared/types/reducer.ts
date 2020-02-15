@@ -4,7 +4,8 @@ import {
     LoaderBarStyleType,
     MobileMenuPropsType,
     MainHeaderPropsType,
-    AboutPropsType
+    AboutPropsType,
+    ProjectsPropsType
 } from '@Shared/types/props';
 
 export type StateType = {
@@ -14,6 +15,7 @@ export type StateType = {
         MobileMenu: MobileMenuPropsType;
         MainHeader: MainHeaderPropsType;
         About: AboutPropsType;
+        Projects: ProjectsPropsType;
     };
 };
 export type ActionType = {

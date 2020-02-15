@@ -12,6 +12,7 @@ import { getInitialStateValues } from '@Shared/reducers/factory';
 import { AppContext } from '@Shared/contexts/AppContext';
 
 const About = React.lazy(() => import('@Components/About/About'));
+const Projects = React.lazy(() => import('@Components/Projects/Pojects'));
 
 const App: React.FC = (props: any) => {
     const [state, dispatch] = React.useReducer(
@@ -28,7 +29,8 @@ const App: React.FC = (props: any) => {
                 <MobileMenu />
                 <React.Suspense fallback={<h3>Loading...</h3>}>
                     <Switch>
-                        <Route path="/" component={About} />
+                        <Route exact path="/" component={About} />
+                        <Route path="/projects" component={Projects} />
                     </Switch>
                 </React.Suspense>
             </AppContext.Provider>

@@ -51,6 +51,14 @@ export function getInitialStateValues(): StateType {
                         fontSize: '2rem'
                     }
                 }
+            },
+            Projects: {
+                projectsStyles: {
+                    pageTitle: {
+                        color: 'rgb(0, 83, 144)',
+                        fontSize: '2rem'
+                    }
+                }
             }
         }
     };

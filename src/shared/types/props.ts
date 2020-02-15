@@ -54,3 +54,12 @@ export type AboutPropsType = {
         };
     };
 };
+
+export type ProjectsPropsType = {
+    projectsStyles: {
+        pageTitle: {
+            color: string;
+            fontSize: string;
+        };
+    };
+};
