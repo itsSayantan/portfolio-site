@@ -27,6 +27,20 @@ const Projects = () => {
                                         projectsStyles?.pageTitle?.fontSize
                                     }
                                 />
+                                <div className="projects-items-wrapper">
+                                    <div className="projects-item"></div>
+                                    <div className="projects-item"></div>
+                                    <div className="projects-item"></div>
+                                    <div className="projects-item"></div>
+                                    <div className="projects-item"></div>
+                                    <div className="projects-item"></div>
+                                    <div className="projects-item"></div>
+                                    <div className="projects-item"></div>
+                                    <div className="projects-item"></div>
+                                    <div className="projects-item"></div>
+                                    <div className="projects-item"></div>
+                                    <div className="projects-item"></div>
+                                </div>
                             </div>
                         </>
                     </MainLayout>

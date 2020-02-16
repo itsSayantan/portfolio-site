@@ -7,3 +7,17 @@
     left: 5%;
     width: 90%;
 }
+
+.projects-items-wrapper {
+    background-color: #efefef;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.projects-item {
+    height: 100px;
+    width: 33%;
+    background-color: blue;
+    margin: 10px;
+}
