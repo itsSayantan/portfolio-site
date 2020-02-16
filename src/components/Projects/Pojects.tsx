@@ -7,8 +7,26 @@ import './Projects.scss';
 
 import MainLayout from '@Components/MainLayout/MainLayout';
 import PageTitle from '@Components/PageTitle/PageTitle';
+import ContentLoadingIndicator from '@Components/shared/ContentLoadingIndicator/ContentLoadingIndicator';
+
+const ProjectsLoaderView = () => {
+    return (
+        <div
+            style={{
+                marginTop: '10px',
+                width: '100%',
+                height: '150px'
+            }}
+        >
+            <ContentLoadingIndicator />
+            <ContentLoadingIndicator />
+            <ContentLoadingIndicator />
+        </div>
+    );
+};
 
 const Projects = () => {
+    const [isLoading, setIsLoading] = React.useState(false);
     // 'https://api.github.com/users/itsSayantan/repos'
 
     return (
@@ -16,6 +34,16 @@ const Projects = () => {
             {(appContext: AppContextType) => {
                 const projectsContext = appContext?.state?.AppTheme?.Projects;
                 const projectsStyles = projectsContext?.projectsStyles;
+
+                const projectContent = isLoading ? (
+                    <ProjectsLoaderView />
+                ) : (
+                    <>
+                        <div className="projects-item"></div>
+                        <div className="projects-item"></div>
+                    </>
+                );
+
                 return (
                     <MainLayout>
                         <>
@@ -28,18 +56,7 @@ const Projects = () => {
                                     }
                                 />
                                 <div className="projects-items-wrapper">
-                                    <div className="projects-item"></div>
-                                    <div className="projects-item"></div>
-                                    <div className="projects-item"></div>
-                                    <div className="projects-item"></div>
-                                    <div className="projects-item"></div>
-                                    <div className="projects-item"></div>
-                                    <div className="projects-item"></div>
-                                    <div className="projects-item"></div>
-                                    <div className="projects-item"></div>
-                                    <div className="projects-item"></div>
-                                    <div className="projects-item"></div>
-                                    <div className="projects-item"></div>
+                                    {projectContent}
                                 </div>
                             </div>
                         </>
