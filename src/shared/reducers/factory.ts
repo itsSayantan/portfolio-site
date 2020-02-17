@@ -60,6 +60,11 @@ export function getInitialStateValues(): StateType {
                     }
                 }
             }
+        },
+        AppState: {
+            mainLoader: {
+                enabled: false
+            }
         }
     };
 }

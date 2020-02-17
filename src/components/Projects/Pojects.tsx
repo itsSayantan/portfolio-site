@@ -9,6 +9,11 @@ import MainLayout from '@Components/MainLayout/MainLayout';
 import PageTitle from '@Components/PageTitle/PageTitle';
 import ContentLoadingIndicator from '@Components/shared/ContentLoadingIndicator/ContentLoadingIndicator';
 
+import {
+    enableMainLoaderAction,
+    disableMainLoaderAction
+} from '@Shared/constants';
+
 const ProjectsLoaderView = () => {
     return (
         <div
@@ -26,16 +31,29 @@ const ProjectsLoaderView = () => {
 };
 
 const Projects = () => {
-    const [isLoading, setIsLoading] = React.useState(false);
     // 'https://api.github.com/users/itsSayantan/repos'
+    const projectsContext = React.useContext(AppContext) as AppContextType;
+    React.useEffect(() => {
+        projectsContext?.dispatch({ type: enableMainLoaderAction });
+
+        fetch('https://api.github.com/users/itsSayantan/repos')
+            .then(data => data.json())
+            .then(jsonData => {
+                projectsContext?.dispatch({
+                    type: disableMainLoaderAction
+                });
+            });
+    }, []);
 
     return (
         <AppContext.Consumer>
             {(appContext: AppContextType) => {
+                const mainLoaderState = appContext?.state?.AppState?.mainLoader;
+                const isLoaderEnabled = mainLoaderState?.enabled;
                 const projectsContext = appContext?.state?.AppTheme?.Projects;
                 const projectsStyles = projectsContext?.projectsStyles;
 
-                const projectContent = isLoading ? (
+                const projectContent = isLoaderEnabled ? (
                     <ProjectsLoaderView />
                 ) : (
                     <>
