@@ -8,5 +8,7 @@ export type AppContextType = {
 export type AppStateType = {
     mainLoader: {
         enabled: boolean;
-    }
-}
+    };
+};
+
+export type ProjectsDataType = any;

@@ -65,6 +65,7 @@ export function getInitialStateValues(): StateType {
             mainLoader: {
                 enabled: false
             }
-        }
+        },
+        ProjectsData: []
     };
 }

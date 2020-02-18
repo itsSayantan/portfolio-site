@@ -4,7 +4,8 @@ import {
     openMobileMenuAction,
     closeMobileMenuAction,
     enableMainLoaderAction,
-    disableMainLoaderAction
+    disableMainLoaderAction,
+    setProjectsDataAction
 } from '@Shared/constants';
 
 const createInitialState = (initialState: StateType) => {
@@ -65,6 +66,12 @@ const reducer = (state: StateType, action: ActionType): StateType => {
                         enabled: false
                     }
                 }
+            };
+        }
+        case setProjectsDataAction: {
+            return {
+                ...state,
+                ProjectsData: action?.payload
             };
         }
         default:

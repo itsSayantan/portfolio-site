@@ -8,9 +8,7 @@ import {
     ProjectsPropsType
 } from '@Shared/types/props';
 
-import {
-    AppStateType
-} from '@Shared/types/others';
+import { AppStateType, ProjectsDataType } from '@Shared/types/others';
 
 export type StateType = {
     AppTheme: {
@@ -22,6 +20,7 @@ export type StateType = {
         Projects: ProjectsPropsType;
     };
     AppState: AppStateType;
+    ProjectsData: ProjectsDataType;
 };
 export type ActionType = {
     type: string;
