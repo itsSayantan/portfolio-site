@@ -63,3 +63,7 @@ export type ProjectsPropsType = {
         };
     };
 };
+
+export type ProjectsDataPropsType = {
+    data: Array<any>;
+};
