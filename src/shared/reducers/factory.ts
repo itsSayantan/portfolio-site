@@ -16,6 +16,8 @@ export function getInitialStateValues(): StateType {
                 marginBottom: '10px'
             },
             MobileMenu: {
+                // for now menItems is a part of the theme.
+                // can be done outside theme if the menu items are fetched dynamically
                 menuItems: [
                     { text: 'About', link: '/' },
                     { text: 'Projects', link: '/projects' }

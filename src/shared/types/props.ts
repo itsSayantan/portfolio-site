@@ -22,6 +22,8 @@ export type MenuItem = {
 };
 
 export type MobileMenuPropsType = {
+    // for now menItems is a part of the theme.
+    // can be done outside theme if the menu items are fetched dynamically
     menuItems: Array<MenuItem>;
     open: boolean;
     menuStyles: {
@@ -36,6 +38,13 @@ export type MobileMenuPropsType = {
             color: string;
         };
     };
+};
+
+export type MobileMenuItemsPropsType = {
+    menuItems: Array<MenuItem>;
+    color: string;
+    borderBottom: string;
+    onLinkClick: () => void;
 };
 
 export type MainHeaderPropsType = {

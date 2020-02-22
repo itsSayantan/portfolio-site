@@ -4,10 +4,38 @@ import { Link } from 'react-router-dom';
 import { closeMobileMenuAction } from '@Shared/constants';
 import { AppContext } from '@Shared/contexts/AppContext';
 import { AppContextType } from '@Shared/types/others';
+import { MobileMenuItemsPropsType } from '@Shared/types/props';
 
 import './MobileMenu.scss';
 
 import CloseButton from '@Images/close-button.svg';
+
+const MobileMenuItems = React.memo((props: MobileMenuItemsPropsType) => {
+    if (!(props?.menuItems instanceof Array)) {
+        return <></>;
+    } else {
+        return (
+            <>
+                {props?.menuItems.map(m => (
+                    <div
+                        className="mobile-menu-item"
+                        style={{ borderBottom: props?.borderBottom }}
+                    >
+                        <Link
+                            to={m?.link}
+                            style={{
+                                color: props?.color
+                            }}
+                            onClick={props.onLinkClick}
+                        >
+                            {m?.text}
+                        </Link>
+                    </div>
+                ))}
+            </>
+        );
+    }
+});
 
 const MobileMenu = () => {
     return (
@@ -40,28 +68,19 @@ const MobileMenu = () => {
                             <img src={CloseButton} alt="Close Button" />
                         </div>
                         <div className="mobile-menu-item-container">
-                            <div
-                                className="mobile-menu-item"
-                                style={{
-                                    borderBottom:
-                                        mobileMenuState?.menuStyles?.item
-                                            ?.borderBottom
+                            <MobileMenuItems
+                                menuItems={mobileMenuState?.menuItems}
+                                color={mobileMenuState?.menuStyles?.item?.color}
+                                borderBottom={
+                                    mobileMenuState?.menuStyles?.item
+                                        ?.borderBottom
+                                }
+                                onLinkClick={() => {
+                                    appContext?.dispatch({
+                                        type: closeMobileMenuAction
+                                    });
                                 }}
-                            >
-                                <Link
-                                    to="/"
-                                    style={{
-                                        color:
-                                            mobileMenuState?.menuStyles?.item
-                                                ?.color
-                                    }}
-                                >
-                                    About
-                                </Link>
-                            </div>
-                            <div className="mobile-menu-item">
-                                <Link to="/projects">Projects</Link>
-                            </div>
+                            />
                         </div>
                     </div>
                 );
