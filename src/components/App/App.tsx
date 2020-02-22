@@ -11,8 +11,8 @@ import { reducer, createInitialState } from '@Shared/reducers/AppReducer';
 import { getInitialStateValues } from '@Shared/reducers/factory';
 import { AppContext } from '@Shared/contexts/AppContext';
 
-const About = React.lazy(() => import('@Components/About/About'));
-const Projects = React.lazy(() => import('@Components/Projects/Pojects'));
+const About = React.lazy(() => import('@Pages/About/About'));
+const Projects = React.lazy(() => import('@Pages/Projects/Pojects'));
 
 const App: React.FC = (props: any) => {
     const [state, dispatch] = React.useReducer(

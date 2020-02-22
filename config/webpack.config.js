@@ -21,7 +21,8 @@ module.exports = {
                 REACT_BASE_PATH,
                 'components'
             ),
-            '@Shared': path.resolve(__dirname, REACT_BASE_PATH, 'shared')
+            '@Shared': path.resolve(__dirname, REACT_BASE_PATH, 'shared'),
+            '@Pages': path.resolve(__dirname, REACT_BASE_PATH, 'pages')
         }
     },
     entry: './index.tsx',

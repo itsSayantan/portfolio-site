@@ -13,7 +13,8 @@ import ContentLoadingIndicator from '@Components/shared/ContentLoadingIndicator/
 import {
     enableMainLoaderAction,
     disableMainLoaderAction,
-    setProjectsDataAction
+    setProjectsDataAction,
+    githubFetchProjectsUrl
 } from '@Shared/constants';
 
 const ProjectsLoaderView = () => {
@@ -63,9 +64,7 @@ const Projects = (props: ProjectsPropsType) => {
     React.useEffect(() => {
         dispatch({ type: enableMainLoaderAction });
 
-        fetch(
-            'https://sayantan-portfolio-backend.herokuapp.com/api/projects/getAll'
-        )
+        fetch(githubFetchProjectsUrl)
             .then(data => data.json())
             .then(jsonData => {
                 dispatch({
