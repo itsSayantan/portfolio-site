@@ -55,6 +55,15 @@ export type MainHeaderPropsType = {
     menuItems: Array<MenuItem>;
 };
 
+export type HomePropsType = {
+    homeStyles: {
+        pageTitle: {
+            color: string;
+            fontSize: string;
+        };
+    };
+};
+
 export type AboutPropsType = {
     aboutStyles: {
         pageTitle: {

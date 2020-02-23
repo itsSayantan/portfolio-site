@@ -11,6 +11,7 @@ import { reducer, createInitialState } from '@Shared/reducers/AppReducer';
 import { getInitialStateValues } from '@Shared/reducers/factory';
 import { AppContext } from '@Shared/contexts/AppContext';
 
+const Home = React.lazy(() => import('@Pages/Home/Home'));
 const About = React.lazy(() => import('@Pages/About/About'));
 const Projects = React.lazy(() => import('@Pages/Projects/Pojects'));
 
@@ -29,7 +30,8 @@ const App: React.FC = (props: any) => {
                 <MobileMenu />
                 <React.Suspense fallback={<h3>Loading...</h3>}>
                     <Switch>
-                        <Route exact path="/" component={About} />
+                        <Route exact path="/" component={Home} />
+                        <Route path="/about" component={About} />
                         <Route path="/projects" component={Projects} />
                     </Switch>
                 </React.Suspense>

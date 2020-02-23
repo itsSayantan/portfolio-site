@@ -19,7 +19,8 @@ export function getInitialStateValues(): StateType {
                 // for now menItems is a part of the theme.
                 // can be done outside theme if the menu items are fetched dynamically
                 menuItems: [
-                    { text: 'About', link: '/' },
+                    { text: 'Home', link: '' },
+                    { text: 'About', link: '/about' },
                     { text: 'Projects', link: '/projects' }
                 ],
                 open: false,
@@ -42,9 +43,18 @@ export function getInitialStateValues(): StateType {
                     color: '#589dd0'
                 },
                 menuItems: [
-                    { text: 'About', link: '/' },
+                    { text: 'Home', link: '' },
+                    { text: 'About', link: '/about' },
                     { text: 'Projects', link: '/projects' }
                 ]
+            },
+            Home: {
+                homeStyles: {
+                    pageTitle: {
+                        color: 'rgb(0, 83, 144)',
+                        fontSize: '2rem'
+                    }
+                }
             },
             About: {
                 aboutStyles: {
