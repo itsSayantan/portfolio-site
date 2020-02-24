@@ -24,7 +24,7 @@ const Home = (props: any) => {
                                     textColor={homeStyles?.pageTitle?.color}
                                     fontSize={homeStyles?.pageTitle?.fontSize}
                                 />
-                                Page content yet to be finalized
+                                Page should contain the list of Posts.
                             </div>
                         </>
                     </MainLayout>
