@@ -1,3 +1,5 @@
+import { TimeLineBoxType } from '@Shared/types/others';
+
 export type LoaderAreaStyleType = {
     loaderAreaBackgroundColor?: string;
 };
@@ -62,6 +64,10 @@ export type HomePropsType = {
             fontSize: string;
         };
     };
+};
+
+export type TimeLinePropsType = {
+    timeLineItems: Array<TimeLineBoxType>;
 };
 
 export type AboutPropsType = {

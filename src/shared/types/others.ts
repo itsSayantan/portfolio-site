@@ -11,4 +11,17 @@ export type AppStateType = {
     };
 };
 
+export type TimeLineBoxItemType = {
+    id: number;
+    text: string;
+    link: string;
+    date: string;
+};
+
+export type TimeLineBoxType = {
+    id: number;
+    header: string;
+    items: Array<TimeLineBoxItemType>;
+};
+
 export type ProjectsDataType = any;
