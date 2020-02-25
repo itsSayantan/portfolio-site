@@ -19,9 +19,9 @@ export function getInitialStateValues(): StateType {
                 // for now menItems is a part of the theme.
                 // can be done outside theme if the menu items are fetched dynamically
                 menuItems: [
-                    { text: 'Home', link: '' },
-                    { text: 'About', link: '/about' },
-                    { text: 'Projects', link: '/projects' }
+                    { id: 1, text: 'Home', link: '' },
+                    { id: 2, text: 'About', link: '/about' },
+                    { id: 3, text: 'Projects', link: '/projects' }
                 ],
                 open: false,
                 menuStyles: {
@@ -43,9 +43,9 @@ export function getInitialStateValues(): StateType {
                     color: '#589dd0'
                 },
                 menuItems: [
-                    { text: 'Home', link: '' },
-                    { text: 'About', link: '/about' },
-                    { text: 'Projects', link: '/projects' }
+                    { id: 1, text: 'Home', link: '' },
+                    { id: 2, text: 'About', link: '/about' },
+                    { id: 3, text: 'Projects', link: '/projects' }
                 ]
             },
             Home: {
@@ -78,6 +78,11 @@ export function getInitialStateValues(): StateType {
                 enabled: false
             }
         },
-        ProjectsData: []
+        ProjectsData: {
+            data: []
+        },
+        TimeLineData: {
+            data: []
+        }
     };
 }

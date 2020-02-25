@@ -84,7 +84,7 @@ const Projects = (props: ProjectsPropsType) => {
                 const isLoaderEnabled = mainLoaderState?.enabled;
                 const projectsContext = appContext?.state?.AppTheme?.Projects;
                 const projectsStyles = projectsContext?.projectsStyles;
-                const projectsData = appContext?.state?.ProjectsData;
+                const projectsData = appContext?.state?.ProjectsData?.data;
 
                 const projectContent = isLoaderEnabled ? (
                     <ProjectsLoaderView />

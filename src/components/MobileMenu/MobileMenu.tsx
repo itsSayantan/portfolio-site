@@ -20,6 +20,7 @@ const MobileMenuItems = React.memo((props: MobileMenuItemsPropsType) => {
                     <div
                         className="mobile-menu-item"
                         style={{ borderBottom: props?.borderBottom }}
+                        key={m?.id}
                     >
                         <Link
                             to={m?.link}

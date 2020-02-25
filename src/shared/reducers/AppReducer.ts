@@ -5,7 +5,8 @@ import {
     closeMobileMenuAction,
     enableMainLoaderAction,
     disableMainLoaderAction,
-    setProjectsDataAction
+    setProjectsDataAction,
+    setTimeLineDataAction
 } from '@Shared/constants';
 
 const createInitialState = (initialState: StateType) => {
@@ -71,7 +72,19 @@ const reducer = (state: StateType, action: ActionType): StateType => {
         case setProjectsDataAction: {
             return {
                 ...state,
-                ProjectsData: action?.payload
+                ProjectsData: {
+                    ...state?.ProjectsData,
+                    data: action?.payload
+                }
+            };
+        }
+        case setTimeLineDataAction: {
+            return {
+                ...state,
+                TimeLineData: {
+                    ...state?.TimeLineData,
+                    data: action?.payload
+                }
             };
         }
         default:

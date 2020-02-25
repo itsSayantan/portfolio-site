@@ -7,88 +7,59 @@ import TimeLine from '@Components/TimeLine/TImeLine';
 
 import { AppContext } from '@Shared/contexts/AppContext';
 import { AppContextType } from '@Shared/types/others';
-import { TimeLinePropsType } from '@Shared/types/props';
 
 import './Home.scss';
 
+import {
+    enableMainLoaderAction,
+    disableMainLoaderAction,
+    setTimeLineDataAction,
+    githubFetchTimeLineItemsUrl
+} from '@Shared/constants';
+
+const HomeLoaderView = () => {
+    return (
+        <div style={{ width: '100%', height: '150px', marginTop: '10px' }}>
+            <ContentLoadingIndicator />
+            <ContentLoadingIndicator />
+            <ContentLoadingIndicator />
+        </div>
+    );
+};
+
 const Home = (props: any) => {
-    const dummyPosts: TimeLinePropsType = {
-        timeLineItems: [
-            {
-                id: 1,
-                header: '2020',
-                items: [
-                    {
-                        id: 1,
-                        date: '3rd Jan 2020',
-                        link: '/asasasasas',
-                        text:
-                            'Article with some title. Article is called Post here btw.....'
-                    },
-                    {
-                        id: 2,
-                        date: '4th Feb 2020',
-                        link: '/hmm',
-                        text:
-                            'Article with some title. Article is called Post here btw.....'
-                    },
-                    {
-                        id: 3,
-                        date: '3rd Mar 2020',
-                        link: '/tetete',
-                        text:
-                            'Article with some title. Article is called Post here btw.....'
-                    },
-                    {
-                        id: 4,
-                        date: '4th Jan 2020',
-                        link: '/uuuuu',
-                        text:
-                            'Article with some title. Article is called Post here btw.....'
-                    }
-                ]
-            },
-            {
-                id: 2,
-                header: '2019',
-                items: [
-                    {
-                        id: 1,
-                        date: '3rd Jan 2019',
-                        link: '/asasasasas',
-                        text:
-                            'Article with some title. Article is called Post here btw.....'
-                    },
-                    {
-                        id: 2,
-                        date: '4th Feb 2019',
-                        link: '/hmm',
-                        text:
-                            'Article with some title. Article is called Post here btw.....'
-                    },
-                    {
-                        id: 3,
-                        date: '3rd Mar 2019',
-                        link: '/tetete',
-                        text:
-                            'Article with some title. Article is called Post here btw.....'
-                    },
-                    {
-                        id: 4,
-                        date: '4th Jan 2019',
-                        link: '/uuuuu',
-                        text:
-                            'Article with some title. Article is called Post here btw.....'
-                    }
-                ]
-            }
-        ]
-    };
+    const { state, dispatch } = React.useContext(AppContext) as AppContextType;
+    React.useEffect(() => {
+        dispatch({ type: enableMainLoaderAction });
+
+        fetch(githubFetchTimeLineItemsUrl)
+            .then(data => data.json())
+            .then(jsonData => {
+                dispatch({
+                    type: setTimeLineDataAction,
+                    payload: jsonData
+                });
+                dispatch({
+                    type: disableMainLoaderAction
+                });
+            });
+    }, []);
+
     return (
         <AppContext.Consumer>
             {(appContext: AppContextType) => {
+                const mainLoaderState = appContext?.state?.AppState?.mainLoader;
                 const homeContext = appContext?.state?.AppTheme?.Home;
                 const homeStyles = homeContext?.homeStyles;
+                const isLoaderEnabled = mainLoaderState?.enabled;
+                const timeLineData = appContext?.state?.TimeLineData?.data;
+
+                const homeContent = isLoaderEnabled ? (
+                    <HomeLoaderView />
+                ) : (
+                    <TimeLine data={timeLineData} />
+                );
+
                 return (
                     <MainLayout>
                         <>
@@ -98,9 +69,7 @@ const Home = (props: any) => {
                                     textColor={homeStyles?.pageTitle?.color}
                                     fontSize={homeStyles?.pageTitle?.fontSize}
                                 />
-                                <TimeLine
-                                    timeLineItems={dummyPosts?.timeLineItems}
-                                />
+                                {homeContent}
                             </div>
                         </>
                     </MainLayout>

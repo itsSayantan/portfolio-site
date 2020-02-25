@@ -8,7 +8,7 @@ import './TimeLine.scss';
 const TimeLine = (props: TimeLinePropsType) => {
     return (
         <div className="timeline-wrapper">
-            {props?.timeLineItems.map(t => {
+            {props?.data.map(t => {
                 return (
                     <div className="timeline-box" key={t?.id}>
                         <div className="timeline-header">{t?.header}</div>

@@ -19,6 +19,7 @@ export type ContentLoadingIndicatorPropsType = {
 };
 
 export type MenuItem = {
+    id: number;
     text: string;
     link: string;
 };
@@ -67,7 +68,7 @@ export type HomePropsType = {
 };
 
 export type TimeLinePropsType = {
-    timeLineItems: Array<TimeLineBoxType>;
+    data: Array<TimeLineBoxType>;
 };
 
 export type AboutPropsType = {

@@ -6,10 +6,12 @@ import {
     MainHeaderPropsType,
     HomePropsType,
     AboutPropsType,
-    ProjectsPropsType
+    ProjectsPropsType,
+    ProjectsDataPropsType,
+    TimeLinePropsType
 } from '@Shared/types/props';
 
-import { AppStateType, ProjectsDataType } from '@Shared/types/others';
+import { AppStateType } from '@Shared/types/others';
 
 export type StateType = {
     AppTheme: {
@@ -22,7 +24,8 @@ export type StateType = {
         Projects: ProjectsPropsType;
     };
     AppState: AppStateType;
-    ProjectsData: ProjectsDataType;
+    ProjectsData: ProjectsDataPropsType;
+    TimeLineData: TimeLinePropsType;
 };
 export type ActionType = {
     type: string;
