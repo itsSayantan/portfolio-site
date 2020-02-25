@@ -31,6 +31,7 @@ module.exports = {
             ? 'source-map'
             : 'cheap-eval-source-map',
     output: {
+        publicPath: '/',
         path:
             process.env.NODE_ENV === 'production'
                 ? REACT_OUTPUT_PATH
@@ -39,6 +40,7 @@ module.exports = {
         chunkFilename: '[name].js'
     },
     devServer: {
+        publicPath: '/',
         contentBase: REACT_DEV_SERVER_OUTPUT_PATH,
         disableHostCheck: false,
         port: 3000,

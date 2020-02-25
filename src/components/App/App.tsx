@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 import './App.scss';
 
@@ -14,6 +14,7 @@ import { AppContext } from '@Shared/contexts/AppContext';
 const Home = React.lazy(() => import('@Pages/Home/Home'));
 const About = React.lazy(() => import('@Pages/About/About'));
 const Projects = React.lazy(() => import('@Pages/Projects/Pojects'));
+const Post = React.lazy(() => import('@Pages/Post/Post'));
 
 const App: React.FC = (props: any) => {
     const [state, dispatch] = React.useReducer(
@@ -33,6 +34,8 @@ const App: React.FC = (props: any) => {
                         <Route exact path="/" component={Home} />
                         <Route path="/about" component={About} />
                         <Route path="/projects" component={Projects} />
+                        <Route exact path="/posts/:postID" component={Post} />
+                        <Redirect to="/" />
                     </Switch>
                 </React.Suspense>
             </AppContext.Provider>
