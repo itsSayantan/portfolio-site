@@ -1,3 +1,6 @@
+export const routerBaseName =
+    process.env.NODE_ENV === 'production' ? '/portfolio-site/' : '/';
+
 export const portfolioBackendEndpoint =
     'https://sayantan-portfolio-backend.herokuapp.com';
 export const githubFetchProjectsUrl =

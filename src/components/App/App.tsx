@@ -7,6 +7,8 @@ import MainLoader from '@Components/shared/MainLoader/MainLoader';
 import MobileMenu from '@Components/MobileMenu/MobileMenu';
 import MainHeader from '@Components/MainHeader/MainHeader';
 
+import { routerBaseName } from '@Shared/constants';
+
 import { reducer, createInitialState } from '@Shared/reducers/AppReducer';
 import { getInitialStateValues } from '@Shared/reducers/factory';
 import { AppContext } from '@Shared/contexts/AppContext';
@@ -20,6 +22,7 @@ const PageNotFound = React.lazy(() =>
 );
 
 const App: React.FC = (props: any) => {
+    console.log(routerBaseName);
     const [state, dispatch] = React.useReducer(
         reducer,
         getInitialStateValues(),
@@ -27,7 +30,7 @@ const App: React.FC = (props: any) => {
     );
 
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={routerBaseName}>
             <AppContext.Provider value={{ state, dispatch }}>
                 <MainHeader />
                 <MainLoader />

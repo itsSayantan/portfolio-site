@@ -31,7 +31,8 @@ module.exports = {
             ? 'source-map'
             : 'cheap-eval-source-map',
     output: {
-        publicPath: '/portfolio-site/',
+        publicPath:
+            process.env.NODE_ENV === 'production' ? '/portfolio-site/' : '/',
         path:
             process.env.NODE_ENV === 'production'
                 ? REACT_OUTPUT_PATH
