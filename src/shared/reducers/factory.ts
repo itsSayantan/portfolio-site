@@ -56,6 +56,14 @@ export function getInitialStateValues(): StateType {
                     }
                 }
             },
+            Post: {
+                postStyles: {
+                    pageTitle: {
+                        color: 'rgb(0, 83, 144)',
+                        fontSize: '2rem'
+                    }
+                }
+            },
             About: {
                 aboutStyles: {
                     pageTitle: {
@@ -83,6 +91,12 @@ export function getInitialStateValues(): StateType {
         },
         TimeLineData: {
             data: []
+        },
+        PostData: {
+            header: 'The first post',
+            date: '3rd Jan 2020',
+            content:
+                'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum aspernatur iusto unde eveniet aperiam dolor eos rerum? Quibusdam, magnam aut impedit labore nulla quas vel sed molestias. Beatae, accusantium corporis!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum aspernatur iusto unde eveniet aperiam dolor eos rerum? Quibusdam, magnam aut impedit labore nulla quas vel sed molestias. Beatae, accusantium corporis!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum aspernatur iusto unde eveniet aperiam dolor eos rerum? Quibusdam, magnam aut impedit labore nulla quas vel sed molestias. Beatae, accusantium corporis!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum aspernatur iusto unde eveniet aperiam dolor eos rerum? QuiLorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum aspernatur iusto unde eveniet aperiam dolor eos rerum? Quibusdam, magnam aut impedit labore nulla quas vel sed molestias. Beatae, accusantium corporis!tae, accusantium corporis!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum aspernatur iusto unde eveniet aperiam dolor eos rerum? Quibusdam, magnam aut impedit labore nulla quas vel sed molestias. Beatae, accusantium corporis!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum aspernatur iusto unde eveniet aperiam dolor eos rerum? Quibusdam, magnam aut impedit labore nulla quas vel sed molestias. Beatae, accusantium corporis!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum aspernatur iusto unde eveniet aperiam dolor eos rerum? Quibusdam, magnam aut impedit labore nulla quas vel sed molestias. Beatae, accusantium corporis!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum aspernatur iusto unde eveniet aperiam dolor eos rerum? Quibusdam, magnam aut impedit labore nulla quas vel sed molestias. Beatae, accusantium corporis!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum aspernatur iusto unde eveniet aperiam dolor eos rerum? Quibusdam, magnam aut impedit labore nulla quas vel sed molestias. Beatae, accusantium corporis!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum aspernatur iusto unde eveniet aperiam dolor eos rerum? Quibusdam, magnam aut impedit labore nulla quas vel sed molestias. Beatae, accusantium corporis!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum aspernatur iusto unde eveniet aperiam dolor eos rerum? Quibusdam, magnam aut impedit labore nulla quas vel sed molestias. Beatae, accusantium corporis!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum aspernatur iusto unde eveniet aperiam dolor eos rerum? Quibusdam, magnam aut impedit labore nulla quas vel sed molestias. Beatae, accusantium corporis!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum aspernatur iusto unde eveniet aperiam dolor eos rerum? Quibusdam, magnam aut impedit labore nulla quas vel sed molestias. Beatae, accusantium corporis!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum aspernatur iusto unde eveniet aperiam dolor eos rerum? Quibusdam, magnam aut impedit labore nulla quas vel sed molestias. Beatae, accusantium corporis!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum aspernatur iusto unde eveniet aperiam dolor eos rerum? Quibusdam, magnam aut impedit labore nulla quas vel sed molestias. Beatae, accusantium corporis!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum aspernatur iusto unde eveniet aperiam dolor eos rerum? Quibusdam, magnam aut impedit labore nulla quas vel sed molestias. Beatae, accusantium corporis!'
         }
     };
 }

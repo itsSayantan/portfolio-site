@@ -71,6 +71,15 @@ export type TimeLinePropsType = {
     data: Array<TimeLineBoxType>;
 };
 
+export type PostPropsType = {
+    postStyles: {
+        pageTitle: {
+            color: string;
+            fontSize: string;
+        };
+    };
+};
+
 export type AboutPropsType = {
     aboutStyles: {
         pageTitle: {

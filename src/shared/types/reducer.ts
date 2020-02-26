@@ -5,13 +5,14 @@ import {
     MobileMenuPropsType,
     MainHeaderPropsType,
     HomePropsType,
+    PostPropsType,
     AboutPropsType,
     ProjectsPropsType,
     ProjectsDataPropsType,
     TimeLinePropsType
 } from '@Shared/types/props';
 
-import { AppStateType } from '@Shared/types/others';
+import { AppStateType, PostDataType } from '@Shared/types/others';
 
 export type StateType = {
     AppTheme: {
@@ -20,12 +21,14 @@ export type StateType = {
         MobileMenu: MobileMenuPropsType;
         MainHeader: MainHeaderPropsType;
         Home: HomePropsType;
+        Post: PostPropsType;
         About: AboutPropsType;
         Projects: ProjectsPropsType;
     };
     AppState: AppStateType;
     ProjectsData: ProjectsDataPropsType;
     TimeLineData: TimeLinePropsType;
+    PostData: PostDataType;
 };
 export type ActionType = {
     type: string;

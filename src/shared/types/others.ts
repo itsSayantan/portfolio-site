@@ -25,3 +25,9 @@ export type TimeLineBoxType = {
 };
 
 export type ProjectsDataType = any;
+
+export type PostDataType = {
+    header: string;
+    date: string;
+    content: string;
+};
