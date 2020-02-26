@@ -5,6 +5,17 @@
     width: 90%;
 }
 
+.post-page-title-section {
+    display: flex;
+    align-items: center;
+}
+
+.post-page-title-back-button-image {
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+}
+
 .post-content-container {
     width: 100%;
     margin-top: 20px;

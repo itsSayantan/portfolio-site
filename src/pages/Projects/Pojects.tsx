@@ -74,6 +74,10 @@ const Projects = (props: ProjectsPropsType) => {
                 dispatch({
                     type: disableMainLoaderAction
                 });
+            })
+            .catch(error => {
+                console.log(error);
+                dispatch({ type: disableMainLoaderAction });
             });
     }, []);
 

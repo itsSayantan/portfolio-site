@@ -31,3 +31,11 @@ export type PostDataType = {
     date: string;
     content: string;
 };
+
+export type PostDataResponseType = {
+    data: PostDataType;
+};
+
+export type PostNotFoundType = {
+    postNotFound: boolean;
+};

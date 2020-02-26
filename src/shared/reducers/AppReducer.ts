@@ -6,7 +6,8 @@ import {
     enableMainLoaderAction,
     disableMainLoaderAction,
     setProjectsDataAction,
-    setTimeLineDataAction
+    setTimeLineDataAction,
+    setPostDataAction
 } from '@Shared/constants';
 
 const createInitialState = (initialState: StateType) => {
@@ -85,6 +86,12 @@ const reducer = (state: StateType, action: ActionType): StateType => {
                     ...state?.TimeLineData,
                     data: action?.payload
                 }
+            };
+        }
+        case setPostDataAction: {
+            return {
+                ...state,
+                PostData: action?.payload
             };
         }
         default:

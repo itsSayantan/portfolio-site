@@ -42,6 +42,10 @@ const Home = (props: any) => {
                 dispatch({
                     type: disableMainLoaderAction
                 });
+            })
+            .catch(error => {
+                console.log(error);
+                dispatch({ type: disableMainLoaderAction });
             });
     }, []);
 
