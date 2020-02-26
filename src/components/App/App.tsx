@@ -15,6 +15,9 @@ const Home = React.lazy(() => import('@Pages/Home/Home'));
 const About = React.lazy(() => import('@Pages/About/About'));
 const Projects = React.lazy(() => import('@Pages/Projects/Pojects'));
 const Post = React.lazy(() => import('@Pages/Post/Post'));
+const PageNotFound = React.lazy(() =>
+    import('@Pages/PageNotFound/PageNotFound')
+);
 
 const App: React.FC = (props: any) => {
     const [state, dispatch] = React.useReducer(
@@ -35,7 +38,8 @@ const App: React.FC = (props: any) => {
                         <Route path="/about" component={About} />
                         <Route path="/projects" component={Projects} />
                         <Route exact path="/posts/:postID" component={Post} />
-                        <Redirect to="/" />
+                        <Route exact path="/404" component={PageNotFound} />
+                        <Redirect to="/404" />
                     </Switch>
                 </React.Suspense>
             </AppContext.Provider>

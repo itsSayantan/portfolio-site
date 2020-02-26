@@ -1,0 +1,24 @@
+.page-not-found-wrapper {
+    position: absolute;
+    top: 10px;
+    left: 5%;
+    width: 90%;
+    margin-bottom: 30px;
+}
+
+.page-not-found-header-text {
+    font-size: 3rem;
+    font-family: 'Odibee Sans', cursive;
+    text-align: center;
+    color: rgb(0, 83, 144);
+}
+
+.page-not-found-text {
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: 'Roboto', sans-serif;
+
+    a {
+        color: rgb(0, 83, 144);
+    }
+}

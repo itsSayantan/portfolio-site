@@ -4,6 +4,7 @@ import MainLayout from '@Components/MainLayout/MainLayout';
 import ContentLoadingIndicator from '@Components/shared/ContentLoadingIndicator/ContentLoadingIndicator';
 import PageTitle from '@Components/PageTitle/PageTitle';
 import TimeLine from '@Components/TimeLine/TImeLine';
+import GlobalFooter from '@Components/GlobalFooter/GlobalFooter';
 
 import { AppContext } from '@Shared/contexts/AppContext';
 import { AppContextType } from '@Shared/types/others';
@@ -65,18 +66,23 @@ const Home = (props: any) => {
                 );
 
                 return (
-                    <MainLayout>
-                        <>
-                            <div className="home-wrapper">
-                                <PageTitle
-                                    text="Home"
-                                    textColor={homeStyles?.pageTitle?.color}
-                                    fontSize={homeStyles?.pageTitle?.fontSize}
-                                />
-                                {homeContent}
-                            </div>
-                        </>
-                    </MainLayout>
+                    <>
+                        <MainLayout>
+                            <>
+                                <div className="home-wrapper">
+                                    <PageTitle
+                                        text="Home"
+                                        textColor={homeStyles?.pageTitle?.color}
+                                        fontSize={
+                                            homeStyles?.pageTitle?.fontSize
+                                        }
+                                    />
+                                    {homeContent}
+                                </div>
+                            </>
+                        </MainLayout>
+                        <GlobalFooter />
+                    </>
                 );
             }}
         </AppContext.Consumer>

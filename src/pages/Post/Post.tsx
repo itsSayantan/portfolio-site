@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useHistory } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 
 import MainLayout from '@Components/MainLayout/MainLayout';
@@ -36,6 +36,7 @@ const PostLoaderView = () => {
 const Post = (props: any) => {
     const { state, dispatch } = React.useContext(AppContext) as AppContextType;
     const { postID } = useParams();
+    const history = useHistory();
 
     React.useEffect(() => {
         dispatch({ type: enableMainLoaderAction });
@@ -50,7 +51,8 @@ const Post = (props: any) => {
             })
             .then((jsonData: PostDataResponseType | PostNotFoundType) => {
                 if ((jsonData as PostNotFoundType)?.postNotFound) {
-                    // show 404 page
+                    // redirect to the /404 page
+                    history.push('/404');
                 } else {
                     // set the post data state
                     const jd = jsonData as PostDataResponseType;

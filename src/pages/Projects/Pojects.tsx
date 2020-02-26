@@ -9,6 +9,7 @@ import './Projects.scss';
 import MainLayout from '@Components/MainLayout/MainLayout';
 import PageTitle from '@Components/PageTitle/PageTitle';
 import ContentLoadingIndicator from '@Components/shared/ContentLoadingIndicator/ContentLoadingIndicator';
+import GlobalFooter from '@Components/GlobalFooter/GlobalFooter';
 
 import {
     enableMainLoaderAction,
@@ -97,22 +98,27 @@ const Projects = (props: ProjectsPropsType) => {
                 );
 
                 return (
-                    <MainLayout>
-                        <>
-                            <div className="projects-wrapper">
-                                <PageTitle
-                                    text="Projects"
-                                    textColor={projectsStyles?.pageTitle?.color}
-                                    fontSize={
-                                        projectsStyles?.pageTitle?.fontSize
-                                    }
-                                />
-                                <div className="projects-items-wrapper">
-                                    {projectContent}
+                    <>
+                        <MainLayout>
+                            <>
+                                <div className="projects-wrapper">
+                                    <PageTitle
+                                        text="Projects"
+                                        textColor={
+                                            projectsStyles?.pageTitle?.color
+                                        }
+                                        fontSize={
+                                            projectsStyles?.pageTitle?.fontSize
+                                        }
+                                    />
+                                    <div className="projects-items-wrapper">
+                                        {projectContent}
+                                    </div>
                                 </div>
-                            </div>
-                        </>
-                    </MainLayout>
+                            </>
+                        </MainLayout>
+                        <GlobalFooter />
+                    </>
                 );
             }}
         </AppContext.Consumer>
