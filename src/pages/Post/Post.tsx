@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import MainLayout from '@Components/MainLayout/MainLayout';
 import ContentLoadingIndicator from '@Components/shared/ContentLoadingIndicator/ContentLoadingIndicator';
 import PageTitle from '@Components/PageTitle/PageTitle';
+import GlobalFooter from '@Components/GlobalFooter/GlobalFooter';
 
 import { AppContext } from '@Shared/contexts/AppContext';
 import {
@@ -94,32 +95,38 @@ const Post = (props: any) => {
                 );
 
                 return (
-                    <MainLayout>
-                        <>
-                            <div className="post-wrapper">
-                                <PageTitle>
-                                    <Link
-                                        to="/"
-                                        style={{
-                                            color: postStyles?.pageTitle?.color,
-                                            fontSize:
-                                                postStyles?.pageTitle?.fontSize,
-                                            textDecoration: 'none'
-                                        }}
-                                    >
-                                        <div className="post-page-title-section">
-                                            <img
-                                                src={BackButton}
-                                                className="post-page-title-back-button-image"
-                                            />
-                                            Home
-                                        </div>
-                                    </Link>
-                                </PageTitle>
-                                {postContent}
-                            </div>
-                        </>
-                    </MainLayout>
+                    <>
+                        <MainLayout>
+                            <>
+                                <div className="post-wrapper">
+                                    <PageTitle>
+                                        <Link
+                                            to="/"
+                                            style={{
+                                                color:
+                                                    postStyles?.pageTitle
+                                                        ?.color,
+                                                fontSize:
+                                                    postStyles?.pageTitle
+                                                        ?.fontSize,
+                                                textDecoration: 'none'
+                                            }}
+                                        >
+                                            <div className="post-page-title-section">
+                                                <img
+                                                    src={BackButton}
+                                                    className="post-page-title-back-button-image"
+                                                />
+                                                Home
+                                            </div>
+                                        </Link>
+                                    </PageTitle>
+                                    {postContent}
+                                </div>
+                            </>
+                        </MainLayout>
+                        <GlobalFooter />
+                    </>
                 );
             }}
         </AppContext.Consumer>

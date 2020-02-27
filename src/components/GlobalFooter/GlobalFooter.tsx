@@ -6,7 +6,7 @@ const GlobalFooter = () => {
     return (
         <div className="global-footer-wrapper">
             <div className="global-footer-copyright-text">
-                Copyright &copy; 2020
+                Copyright &copy; Sayantan Ghosh
             </div>
             <div className="version-number">v1.0.0</div>
         </div>

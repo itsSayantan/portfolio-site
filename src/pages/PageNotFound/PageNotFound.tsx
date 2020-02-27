@@ -4,9 +4,20 @@ import { Link } from 'react-router-dom';
 import MainLayout from '@Components/MainLayout/MainLayout';
 import GlobalFooter from '@Components/GlobalFooter/GlobalFooter';
 
+import { disableMainLoaderAction } from '@Shared/constants';
+
+import { AppContext } from '@Shared/contexts/AppContext';
+import { AppContextType } from '@Shared/types/others';
+
 import './PageNotFound.scss';
 
 const PageNotFound = () => {
+    const { state, dispatch } = React.useContext(AppContext) as AppContextType;
+
+    React.useEffect(() => {
+        dispatch({ type: disableMainLoaderAction });
+    }, []);
+
     return (
         <>
             <MainLayout>
