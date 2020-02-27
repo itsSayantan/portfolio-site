@@ -20,7 +20,6 @@ const PageNotFound = React.lazy(() =>
 );
 
 const App: React.FC = (props: any) => {
-    console.log(routerBaseName);
     const [state, dispatch] = React.useReducer(
         reducer,
         getInitialStateValues(),
