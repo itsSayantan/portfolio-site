@@ -7,8 +7,6 @@ import MainLoader from '@Components/shared/MainLoader/MainLoader';
 import MobileMenu from '@Components/MobileMenu/MobileMenu';
 import MainHeader from '@Components/MainHeader/MainHeader';
 
-import { routerBaseName } from '@Shared/constants';
-
 import { reducer, createInitialState } from '@Shared/reducers/AppReducer';
 import { getInitialStateValues } from '@Shared/reducers/factory';
 import { AppContext } from '@Shared/contexts/AppContext';
