@@ -1,5 +1,4 @@
-export const portfolioBackendEndpoint =
-    'https://sayantan-portfolio-backend.herokuapp.com';
+export const portfolioBackendEndpoint = 'https://sayantan-ghosh.herokuapp.com';
 export const githubFetchProjectsUrl =
     portfolioBackendEndpoint + '/api/projects/getAll';
 export const githubFetchTimeLineItemsUrl =
