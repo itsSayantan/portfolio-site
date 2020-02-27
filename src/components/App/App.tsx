@@ -30,7 +30,7 @@ const App: React.FC = (props: any) => {
     );
 
     return (
-        <BrowserRouter basename={routerBaseName}>
+        <BrowserRouter>
             <AppContext.Provider value={{ state, dispatch }}>
                 <MainHeader />
                 <MainLoader />
