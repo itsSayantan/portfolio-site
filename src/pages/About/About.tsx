@@ -38,7 +38,6 @@ const About = (props: any) => {
                                         <ContentLoadingIndicator
                                             width="100%"
                                             height="100%"
-                                            borderRadius="100%"
                                             marginBottom="15px"
                                         >
                                             <img
