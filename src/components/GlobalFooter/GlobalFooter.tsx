@@ -8,7 +8,7 @@ const GlobalFooter = () => {
             <div className="global-footer-copyright-text">
                 Copyright &copy; Sayantan Ghosh
             </div>
-            <div className="version-number">v1.0.0</div>
+            <div className="version-number">v1.1.0</div>
         </div>
     );
 };
