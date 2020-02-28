@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const AsyncChunkNames = require('webpack-async-chunk-names-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const path = require('path');
 
@@ -70,10 +71,10 @@ module.exports = {
                 use: ['ts-loader']
             },
             {
-                test: /\.(svg|jpeg)$/,
+                test: /\.(svg|jpg|jpeg)$/,
                 loader: 'file-loader',
                 options: {
-                    name: '[path][name].[ext]',
+                    name: '[path][name].[ext]'
                 }
             }
         ]
@@ -83,7 +84,11 @@ module.exports = {
             template: REACT_DEV_SERVER_OUTPUT_PATH + '/index.html'
         }),
         new AsyncChunkNames(),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new CopyWebpackPlugin([
+            { from: 'images/icons', to: 'images/icons' },
+            'public/manifest.json'
+        ])
     ],
     optimization: {
         splitChunks: {
