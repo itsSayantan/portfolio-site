@@ -29,7 +29,7 @@ module.exports = {
     entry: './index.tsx',
     devtool:
         process.env.NODE_ENV === 'production'
-            ? 'source-map'
+            ? 'none'
             : 'cheap-eval-source-map',
     output: {
         publicPath: '/',

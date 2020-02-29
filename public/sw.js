@@ -4,21 +4,13 @@ const assets = [
     '/',
     '/index.html',
     '/About.js',
-    '/About.js.map',
     '/bundle.js',
-    '/bundle.js.map',
     '/common.js',
-    '/common.js.map',
     '/Home.js',
-    '/Home.js.map',
     '/PageNotFound.js',
-    '/PageNotFound.js.map',
     '/Projects.js',
-    '/Projects.js.map',
     '/Post.js',
-    '/Post.js.map',
     '/vendor.js',
-    '/vendor.js.map',
     '/sw.js',
     '/manifest.json',
     '/images/back-button.svg',
@@ -34,14 +26,18 @@ const assets = [
     '/images/icons/152x152.png',
     '/images/icons/192x192.png',
     '/images/icons/384x384.png',
-    '/images/icons/512x512.png'
+    '/images/icons/512x512.png',
+    'https://fonts.googleapis.com/css?family=Sigmar+One&display=swap',
+    'https://fonts.googleapis.com/css?family=Roboto&display=swap',
+    'https://fonts.googleapis.com/css?family=Crimson+Text:400&display=swap',
+    'https://fonts.googleapis.com/css?family=Odibee+Sans&display=swap'
 ];
 
 self.addEventListener('install', e => {
     // pre-cache assets
     e.waitUntil(
         caches.open(cacheName).then(cache => {
-            cache.addAll(assets);
+            return cache.addAll(assets);
         })
     );
 });

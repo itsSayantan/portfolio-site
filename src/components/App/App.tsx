@@ -13,7 +13,7 @@ import { AppContext } from '@Shared/contexts/AppContext';
 
 const Home = React.lazy(() => import('@Pages/Home/Home'));
 const About = React.lazy(() => import('@Pages/About/About'));
-const Projects = React.lazy(() => import('@Pages/Projects/Pojects'));
+const Projects = React.lazy(() => import('@Pages/Projects/Projects'));
 const Post = React.lazy(() => import('@Pages/Post/Post'));
 const PageNotFound = React.lazy(() =>
     import('@Pages/PageNotFound/PageNotFound')
