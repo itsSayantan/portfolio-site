@@ -1,10 +1,10 @@
 {
     "name": "Sayantan Ghosh",
     "short_name": "Sayantan",
-    "start_url": "/index.html",
+    "start_url": ".",
     "display": "standalone",
-    "background_color": "#FFE902",
-    "theme_color": "#FFE1C4",
+    "background_color": "#589dd0",
+    "theme_color": "#589dd0",
     "orientation": "portrait",
     "icons": [
         {
