@@ -87,7 +87,8 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new CopyWebpackPlugin([
             { from: 'images/icons', to: 'images/icons' },
-            'public/manifest.json'
+            'public/manifest.json',
+            'public/sw.js'
         ])
     ],
     optimization: {
