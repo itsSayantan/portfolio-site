@@ -31,7 +31,13 @@ const AppNotificationContent = React.memo(
 
         if (props?.message.trim().length !== 0) {
             content = (
-                <div className="app-notification-content" style={...s}>
+                <div
+                    className="app-notification-content"
+                    style={{
+                        backgroundColor: s?.backgroundColor,
+                        color: s?.color
+                    }}
+                >
                     <div className="app-notification-message-section">
                         <div className="app-notification-message">
                             {props?.message}
