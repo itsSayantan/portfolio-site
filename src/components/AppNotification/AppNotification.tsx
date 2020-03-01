@@ -3,7 +3,8 @@ import React from 'react';
 import {
     AppContextType,
     AppNotificationStateType,
-    AppNotificationCloseHandlerType
+    AppNotificationCloseHandlerType,
+    AppNotificationCloseButtonType
 } from '@Shared/types/others';
 
 import { setAppNotificationDataAction } from '@Shared/constants';
@@ -14,8 +15,55 @@ import CloseButton from '@Images/close-button.svg';
 
 import './AppNotification.scss';
 
+const AppNotificationCloseButton = React.memo(
+    (props: AppNotificationCloseButtonType) => {
+        const { state, dispatch } = React.useContext(
+            AppContext
+        ) as AppContextType;
+        const closeButton = props?.closeButton?.customProperties;
+        const styles = closeButton?.styles;
+
+        const closeButtonClickHandler = (
+            keepOpen: boolean,
+            passedHandler: () => void
+        ) => {
+            if (keepOpen) {
+                passedHandler();
+            } else {
+                dispatch({
+                    type: setAppNotificationDataAction,
+                    payload: { message: '', type: 'info' }
+                });
+                passedHandler();
+            }
+        };
+
+        return (
+            <div
+                className="app-notification-custom-close-button"
+                style={{
+                    backgroundColor: styles?.backgroundColor,
+                    color: styles?.color
+                }}
+                onClick={() =>
+                    closeButtonClickHandler(
+                        closeButton?.keepOpen,
+                        closeButton?.onClick
+                    )
+                }
+            >
+                {closeButton?.text}
+            </div>
+        );
+    }
+);
+
 const AppNotificationContent = React.memo(
-    (props: AppNotificationStateType & AppNotificationCloseHandlerType) => {
+    (
+        props: AppNotificationStateType &
+            AppNotificationCloseHandlerType &
+            AppNotificationCloseButtonType
+    ) => {
         let content = <></>;
 
         const compouteStyles = (props: AppNotificationStateType) => {
@@ -28,6 +76,18 @@ const AppNotificationContent = React.memo(
         };
 
         const s = compouteStyles(props);
+
+        const closeButtonContent = props?.closeButton?.customProperties ? (
+            <AppNotificationCloseButton closeButton={props?.closeButton} />
+        ) : (
+            <img
+                src={CloseButton}
+                alt="Close Button"
+                onClick={() =>
+                    props?.onCloseAppNotification(props?.message, props?.type)
+                }
+            />
+        );
 
         if (props?.message.trim().length !== 0) {
             content = (
@@ -44,16 +104,7 @@ const AppNotificationContent = React.memo(
                         </div>
                     </div>
                     <div className="app-notification-close">
-                        <img
-                            src={CloseButton}
-                            alt="Close Button"
-                            onClick={() =>
-                                props?.onCloseAppNotification(
-                                    props?.message,
-                                    props?.type
-                                )
-                            }
-                        />
+                        {closeButtonContent}
                     </div>
                 </div>
             );
@@ -80,6 +131,8 @@ const AppNotification = () => {
                     });
                 };
 
+                const closeButtonProps = appNotificationState?.closeButton;
+
                 return (
                     <div className="app-notification-wrapper">
                         <AppNotificationContent
@@ -89,6 +142,7 @@ const AppNotification = () => {
                             onCloseAppNotification={() =>
                                 closeAppNotificationHandler('', 'info')
                             }
+                            closeButton={closeButtonProps}
                         />
                     </div>
                 );

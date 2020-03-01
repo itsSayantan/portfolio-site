@@ -86,7 +86,7 @@ export function getInitialStateValues(): StateType {
                 enabled: false
             },
             appNotification: {
-                message: '',
+                message: 'A new version is available',
                 type: 'info',
                 styles: {
                     info: {
@@ -104,6 +104,19 @@ export function getInitialStateValues(): StateType {
                     success: {
                         backgroundColor: '#228220',
                         color: '#fff'
+                    }
+                },
+                closeButton: {
+                    // the following is just for demo
+                    customProperties: {
+                        text: 'Refresh',
+                        styles: {
+                            backgroundColor: '#2e76ad',
+                            color: '#fff'
+                        },
+                        onClick: () => {
+                            console.log('refreshed');
+                        }
                     }
                 }
             }

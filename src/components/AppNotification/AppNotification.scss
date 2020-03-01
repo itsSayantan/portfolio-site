@@ -36,6 +36,16 @@
     }
 }
 
+.app-notification-custom-close-button {
+    padding: 3px 5px;
+    font-size: 0.8rem;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 3px;
+    background-color: #2e76ad;
+    color: #fff;
+    cursor: pointer;
+}
+
 @media screen and (min-width: 768px) {
     .app-notification-wrapper {
         left: 15%;
