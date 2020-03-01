@@ -7,7 +7,8 @@ import {
     disableMainLoaderAction,
     setProjectsDataAction,
     setTimeLineDataAction,
-    setPostDataAction
+    setPostDataAction,
+    setAppNotificationDataAction
 } from '@Shared/constants';
 
 const createInitialState = (initialState: StateType) => {
@@ -92,6 +93,19 @@ const reducer = (state: StateType, action: ActionType): StateType => {
             return {
                 ...state,
                 PostData: action?.payload
+            };
+        }
+        case setAppNotificationDataAction: {
+            return {
+                ...state,
+                AppState: {
+                    ...state?.AppState,
+                    appNotification: {
+                        ...state?.AppState?.appNotification,
+                        message: action?.payload?.message,
+                        type: action?.payload?.type
+                    }
+                }
             };
         }
         default:

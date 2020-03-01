@@ -63,3 +63,7 @@ export type PostDataResponseType = {
 export type PostNotFoundType = {
     postNotFound: boolean;
 };
+
+export type AppNotificationCloseHandlerType = {
+    onCloseAppNotification: (message: string, type: string) => void;
+};

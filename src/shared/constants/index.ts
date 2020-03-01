@@ -12,3 +12,4 @@ export const disableMainLoaderAction = 'DISABLE_MAIN_LOADER_ACTION';
 export const setProjectsDataAction = 'SET_PROJECTS_DATA_ACTION';
 export const setTimeLineDataAction = 'SET_TIME_LINE_DATA_ACTION';
 export const setPostDataAction = 'SET_POST_DATA_ACTION';
+export const setAppNotificationDataAction = 'SET_APP_NOTIFICATION_DATA_ACTION'
