@@ -1,4 +1,4 @@
-const cacheName = 'site-static';
+const cacheName = 'sayantan-portfolio-v1';
 
 const assets = [
     '/',
@@ -44,6 +44,16 @@ self.addEventListener('install', e => {
 
 self.addEventListener('activate', e => {
     console.log('service worker has been activated');
+
+    e.waitUntil(
+        caches.keys().then(keys => {
+            return Promise.all(
+                keys
+                    .filter(key => key !== cacheName)
+                    .map(key => caches.delete(key))
+            );
+        })
+    );
 });
 
 self.addEventListener('fetch', e => {

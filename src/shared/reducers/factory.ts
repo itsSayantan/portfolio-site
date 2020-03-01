@@ -84,6 +84,28 @@ export function getInitialStateValues(): StateType {
         AppState: {
             mainLoader: {
                 enabled: false
+            },
+            appNotification: {
+                message: '',
+                type: 'info',
+                styles: {
+                    info: {
+                        backgroundColor: '#589dd0',
+                        color: '#fff'
+                    },
+                    warn: {
+                        backgroundColor: '#e29e44',
+                        color: '#fff'
+                    },
+                    error: {
+                        backgroundColor: '#dc2f2f',
+                        color: '#fff'
+                    },
+                    success: {
+                        backgroundColor: '#228220',
+                        color: '#fff'
+                    }
+                }
             }
         },
         ProjectsData: {

@@ -7,3 +7,16 @@ html,
 body {
     margin: 0;
 }
+
+.app-content {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+}
+
+.app-notification-section {
+    position: relative;
+    left: 0;
+    width: 100%;
+}

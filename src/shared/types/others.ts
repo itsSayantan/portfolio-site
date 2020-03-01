@@ -5,10 +5,34 @@ export type AppContextType = {
     dispatch: React.Dispatch<ActionType>;
 };
 
+export type AppNotificationStateType = {
+    message: string;
+    type: string; // info, warn, error, success
+    styles?: {
+        info: {
+            backgroundColor: string;
+            color: string;
+        };
+        warn: {
+            backgroundColor: string;
+            color: string;
+        };
+        error: {
+            backgroundColor: string;
+            color: string;
+        };
+        success: {
+            backgroundColor: string;
+            color: string;
+        };
+    };
+};
+
 export type AppStateType = {
     mainLoader: {
         enabled: boolean;
     };
+    appNotification: AppNotificationStateType;
 };
 
 export type TimeLineBoxItemType = {

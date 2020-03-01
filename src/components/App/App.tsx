@@ -6,6 +6,7 @@ import './App.scss';
 import MainLoader from '@Components/shared/MainLoader/MainLoader';
 import MobileMenu from '@Components/MobileMenu/MobileMenu';
 import MainHeader from '@Components/MainHeader/MainHeader';
+import AppNotification from '@Components/AppNotification/AppNotification';
 
 import { reducer, createInitialState } from '@Shared/reducers/AppReducer';
 import { getInitialStateValues } from '@Shared/reducers/factory';
@@ -32,16 +33,25 @@ const App: React.FC = (props: any) => {
                 <MainHeader />
                 <MainLoader />
                 <MobileMenu />
-                <React.Suspense fallback={<h3>Loading...</h3>}>
-                    <Switch>
-                        <Route exact path="/" component={Home} />
-                        <Route path="/about" component={About} />
-                        <Route path="/projects" component={Projects} />
-                        <Route exact path="/posts/:postID" component={Post} />
-                        <Route exact path="/404" component={PageNotFound} />
-                        <Redirect to="/404" />
-                    </Switch>
-                </React.Suspense>
+                <div className="app-content">
+                    <div className="app-notification-section">
+                        <AppNotification />
+                    </div>
+                    <React.Suspense fallback={<h3>Loading...</h3>}>
+                        <Switch>
+                            <Route exact path="/" component={Home} />
+                            <Route path="/about" component={About} />
+                            <Route path="/projects" component={Projects} />
+                            <Route
+                                exact
+                                path="/posts/:postID"
+                                component={Post}
+                            />
+                            <Route exact path="/404" component={PageNotFound} />
+                            <Redirect to="/404" />
+                        </Switch>
+                    </React.Suspense>
+                </div>
             </AppContext.Provider>
         </BrowserRouter>
     );

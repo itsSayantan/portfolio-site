@@ -1,0 +1,50 @@
+.app-notification-wrapper {
+    position: relative;
+    left: 0;
+    width: 100%;
+}
+
+.app-notification-content {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    background-color: #589dd0;
+    left: 5%;
+    width: 90%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.app-notification-message-section {
+    display: flex;
+    padding-right: 5px;
+    word-break: break-all;
+}
+
+.app-notification-message {
+    font-size: 0.8rem;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+}
+
+.app-notification-close {
+    img {
+        width: 10px;
+        height: 10px;
+        padding-left: 5px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .app-notification-wrapper {
+        left: 15%;
+        width: 70%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .app-notification-wrapper {
+        left: 25%;
+        width: 50%;
+    }
+}
