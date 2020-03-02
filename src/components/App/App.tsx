@@ -19,6 +19,7 @@ const Post = React.lazy(() => import('@Pages/Post/Post'));
 const PageNotFound = React.lazy(() =>
     import('@Pages/PageNotFound/PageNotFound')
 );
+const PwaFallback = React.lazy(() => import('@Pages/PwaFallback/PwaFallback'));
 
 const App: React.FC = (props: any) => {
     const [state, dispatch] = React.useReducer(
