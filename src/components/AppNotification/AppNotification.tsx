@@ -7,7 +7,10 @@ import {
     AppNotificationCloseButtonType
 } from '@Shared/types/others';
 
-import { setAppNotificationDataAction } from '@Shared/constants';
+import {
+    setAppNotificationDataAction,
+    resetAppNotificationDataAction
+} from '@Shared/constants';
 
 import { AppContext } from '@Shared/contexts/AppContext';
 
@@ -31,8 +34,7 @@ const AppNotificationCloseButton = React.memo(
                 passedHandler();
             } else {
                 dispatch({
-                    type: setAppNotificationDataAction,
-                    payload: { message: '', type: 'info' }
+                    type: resetAppNotificationDataAction
                 });
                 passedHandler();
             }
@@ -121,13 +123,9 @@ const AppNotification = () => {
                 const appNotificationState =
                     appContext?.state?.AppState?.appNotification;
 
-                const closeAppNotificationHandler = (
-                    message: string,
-                    type: string
-                ) => {
+                const closeAppNotificationHandler = () => {
                     appContext?.dispatch({
-                        type: setAppNotificationDataAction,
-                        payload: { message, type }
+                        type: resetAppNotificationDataAction
                     });
                 };
 
@@ -140,7 +138,7 @@ const AppNotification = () => {
                             message={appNotificationState?.message}
                             type={appNotificationState?.type}
                             onCloseAppNotification={() =>
-                                closeAppNotificationHandler('', 'info')
+                                closeAppNotificationHandler()
                             }
                             closeButton={closeButtonProps}
                         />

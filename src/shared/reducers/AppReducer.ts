@@ -8,7 +8,8 @@ import {
     setProjectsDataAction,
     setTimeLineDataAction,
     setPostDataAction,
-    setAppNotificationDataAction
+    setAppNotificationDataAction,
+    resetAppNotificationDataAction
 } from '@Shared/constants';
 
 const createInitialState = (initialState: StateType) => {
@@ -103,7 +104,22 @@ const reducer = (state: StateType, action: ActionType): StateType => {
                     appNotification: {
                         ...state?.AppState?.appNotification,
                         message: action?.payload?.message,
-                        type: action?.payload?.type
+                        type: action?.payload?.type,
+                        closeButton: action?.payload?.closeButton || {}
+                    }
+                }
+            };
+        }
+        case resetAppNotificationDataAction: {
+            return {
+                ...state,
+                AppState: {
+                    ...state.AppState,
+                    appNotification: {
+                        ...state?.AppState?.appNotification,
+                        message: '',
+                        type: 'info',
+                        closeButton: {}
                     }
                 }
             };
