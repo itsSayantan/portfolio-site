@@ -19,7 +19,8 @@ const Post = React.lazy(() => import('@Pages/Post/Post'));
 const PageNotFound = React.lazy(() =>
     import('@Pages/PageNotFound/PageNotFound')
 );
-const PwaFallback = React.lazy(() => import('@Pages/PwaFallback/PwaFallback'));
+import PwaFallback from '@Pages/PwaFallback/PwaFallback';
+// const PwaFallback = React.lazy(() => import('@Pages/PwaFallback/PwaFallback'));
 
 const App: React.FC = (props: any) => {
     const [state, dispatch] = React.useReducer(
@@ -38,7 +39,7 @@ const App: React.FC = (props: any) => {
                     <div className="app-notification-section">
                         <AppNotification />
                     </div>
-                    <React.Suspense fallback={<h3>Loading...</h3>}>
+                    <React.Suspense fallback={<PwaFallback />}>
                         <Switch>
                             <Route exact path="/" component={Home} />
                             <Route path="/about" component={About} />

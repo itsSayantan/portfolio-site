@@ -1,9 +1,10 @@
-const cacheName = 'sayantan-portfolio-v1';
+const staticCacheName = 'site-static-v1';
+const dynamicCacheName = 'site-dynamic-v1';
 
 const assets = [
     '/',
     '/index.html',
-    '/About.js',
+    // '/About.js',
     '/bundle.js',
     '/common.js',
     '/Home.js',
@@ -36,7 +37,7 @@ const assets = [
 self.addEventListener('install', e => {
     // pre-cache assets
     e.waitUntil(
-        caches.open(cacheName).then(cache => {
+        caches.open(staticCacheName).then(cache => {
             return cache.addAll(assets);
         })
     );
@@ -49,7 +50,10 @@ self.addEventListener('activate', e => {
         caches.keys().then(keys => {
             return Promise.all(
                 keys
-                    .filter(key => key !== cacheName)
+                    .filter(
+                        key =>
+                            key !== staticCacheName && key !== dynamicCacheName
+                    )
                     .map(key => caches.delete(key))
             );
         })
@@ -59,10 +63,20 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
     // responsd with something from the cache, if present,
     // else make the fetch call
+    if (e.request.url.match(/^http/)) {
+        e.respondWith(
+            caches.match(e.request).then(cacheRes => {
+                return (
+                    cacheRes ||
+                    fetch(e.request).then(fetchResponse => {
+                        return caches.open(dynamicCacheName).then(cache => {
+                            cache.put(e.request, fetchResponse.clone());
 
-    e.respondWith(
-        caches.match(e.request).then(cacheRes => {
-            return cacheRes || fetch(e.request);
-        })
-    );
+                            return fetchResponse;
+                        });
+                    })
+                );
+            })
+        );
+    }
 });
