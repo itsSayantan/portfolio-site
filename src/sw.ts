@@ -4,7 +4,7 @@ export const register = () => {
         // sw.js file will be in the same level. Thus the sw.js file will be
         // available by /sw.js
         navigator.serviceWorker
-            .register('/sw.js')
+            .register('/service-worker.js')
             .then(req => console.log('service worker registered'))
             .catch(error =>
                 console.log('service worker could not be registered')
