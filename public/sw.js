@@ -27,10 +27,15 @@ const assets = [
     'https://fonts.googleapis.com/css?family=Odibee+Sans&display=swap'
 ];
 
+self.addEventListener('message', e => {
+    if (e.data.type === 'APP_REFRESH') {
+        self.skipWaiting();
+    }
+});
+
 self.addEventListener('install', e => {
     e.waitUntil(
         Promise.all([
-            // precahce assets
             caches.open(staticCacheName).then(cache => {
                 return cache.addAll(assets);
             })

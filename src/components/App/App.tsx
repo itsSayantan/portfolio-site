@@ -21,7 +21,8 @@ const PageNotFound = React.lazy(() =>
     import('@Pages/PageNotFound/PageNotFound')
 );
 import PwaFallback from '@Pages/PwaFallback/PwaFallback';
-// const PwaFallback = React.lazy(() => import('@Pages/PwaFallback/PwaFallback'));
+
+import { setAppNotificationDataAction } from '@Shared/constants';
 
 const App: React.FC = (props: any) => {
     const [state, dispatch] = React.useReducer(
@@ -29,6 +30,64 @@ const App: React.FC = (props: any) => {
         getInitialStateValues(),
         createInitialState
     );
+
+    React.useEffect(() => {
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker
+                .register('/sw.js', { scope: '/' })
+                .then(reg => {
+                    reg.onupdatefound = () => {
+                        if (reg.installing) {
+                            const newServiceWorker = reg.installing;
+                            newServiceWorker.onstatechange = () => {
+                                if (newServiceWorker.state === 'installed') {
+                                    // show the new update message
+                                    dispatch({
+                                        type: setAppNotificationDataAction,
+                                        payload: {
+                                            message:
+                                                'A new version of this site is available.',
+                                            type: 'info',
+                                            closeButton: {
+                                                customProperties: {
+                                                    text: 'Refresh',
+                                                    styles: {
+                                                        backgroundColor:
+                                                            '#2e76ad',
+                                                        color: '#fff'
+                                                    },
+                                                    onClick: () => {
+                                                        // send the message to skipwaiting to the service worker
+                                                        newServiceWorker.postMessage(
+                                                            {
+                                                                type:
+                                                                    'APP_REFRESH'
+                                                            }
+                                                        );
+                                                        window.location.reload();
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    });
+                                }
+                            };
+                        }
+                    };
+                })
+                .catch(error => {
+                    console.log(error);
+                    dispatch({
+                        type: setAppNotificationDataAction,
+                        payload: {
+                            message:
+                                "Service worker could not be registered. You won't be able to enjoy the offline experience.",
+                            type: 'error'
+                        }
+                    });
+                });
+        }
+    }, []);
 
     return (
         <BrowserRouter>
