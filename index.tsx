@@ -5,4 +5,4 @@ import { register } from './src/sw';
 
 ReactDOM.render(<App />, document.querySelector('#root'));
 
-// register();
+register();

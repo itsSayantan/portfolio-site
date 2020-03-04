@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const AsyncChunkNames = require('webpack-async-chunk-names-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 const path = require('path');
 
@@ -87,8 +88,14 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new CopyWebpackPlugin([
             { from: 'images/icons', to: 'images/icons' },
+            'public/sw.js',
             'public/manifest.json'
-        ])
+        ]),
+        new WorkboxPlugin.InjectManifest({
+            swSrc: './public/sw.js',
+            swDest: 'sw.js',
+            maximumFileSizeToCacheInBytes: 5000000
+        })
     ],
     optimization: {
         splitChunks: {
