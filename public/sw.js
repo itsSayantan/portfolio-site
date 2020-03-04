@@ -4,21 +4,14 @@ const dynamicCacheName = 'site-dynamic-v1';
 const assets = [
     '/',
     '/index.html',
-    // '/About.js',
     '/bundle.js',
     '/common.js',
     '/Home.js',
     '/PageNotFound.js',
-    '/Projects.js',
-    '/Post.js',
     '/vendor.js',
     '/sw.js',
     '/manifest.json',
-    '/images/back-button.svg',
-    '/images/big-image.jpeg',
     '/images/close-button.svg',
-    '/images/github.svg',
-    '/images/linkedin.svg',
     '/images/small-image.jpeg',
     '/images/icons/72x72.png',
     '/images/icons/96x96.png',
@@ -35,11 +28,13 @@ const assets = [
 ];
 
 self.addEventListener('install', e => {
-    // pre-cache assets
     e.waitUntil(
-        caches.open(staticCacheName).then(cache => {
-            return cache.addAll(assets);
-        })
+        Promise.all([
+            // precahce assets
+            caches.open(staticCacheName).then(cache => {
+                return cache.addAll(assets);
+            })
+        ])
     );
 });
 

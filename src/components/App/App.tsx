@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import CEB from 'custom-error-boundary';
 
 import './App.scss';
 
@@ -39,19 +40,25 @@ const App: React.FC = (props: any) => {
                     <div className="app-notification-section">
                         <AppNotification />
                     </div>
-                    <React.Suspense fallback={<PwaFallback />}>
-                        <Switch>
-                            <Route exact path="/" component={Home} />
-                            <Route path="/about" component={About} />
-                            <Route path="/projects" component={Projects} />
-                            <Route
-                                exact
-                                path="/posts/:postID"
-                                component={Post}
-                            />
-                            <Route exact path="/404" component={PageNotFound} />
-                            <Redirect to="/404" />
-                        </Switch>
+                    <React.Suspense fallback={<h3>Loading...</h3>}>
+                        <CEB fallbackUI={() => <PwaFallback />}>
+                            <Switch>
+                                <Route exact path="/" component={Home} />
+                                <Route path="/about" component={About} />
+                                <Route path="/projects" component={Projects} />
+                                <Route
+                                    exact
+                                    path="/posts/:postID"
+                                    component={Post}
+                                />
+                                <Route
+                                    exact
+                                    path="/404"
+                                    component={PageNotFound}
+                                />
+                                <Redirect to="/404" />
+                            </Switch>
+                        </CEB>
                     </React.Suspense>
                 </div>
             </AppContext.Provider>

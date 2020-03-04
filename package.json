@@ -20,6 +20,7 @@
     },
     "homepage": "https://github.com/itsSayantan/portfolio-starter#readme",
     "dependencies": {
+        "custom-error-boundary": "^2.0.1",
         "react": "^16.12.0",
         "react-dom": "^16.12.0",
         "react-markdown": "^4.3.1",
