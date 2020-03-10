@@ -9,7 +9,6 @@ const assets = [
     '/Home.js',
     '/PageNotFound.js',
     '/vendor.js',
-    '/sw.js',
     '/manifest.json',
     '/images/close-button.svg',
     '/images/small-image.jpeg',
