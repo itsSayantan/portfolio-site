@@ -68,7 +68,7 @@ const About = (props: any) => {
                                         </div>
                                     </div>
                                     <div className="about-work">
-                                        Software Engineer at Impact Analytics
+                                        Application Developer at Drivezy
                                     </div>
                                     <div className="about-description">
                                         Interested in Javascript and React.JS on

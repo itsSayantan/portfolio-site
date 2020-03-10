@@ -1,6 +1,6 @@
 {
     "name": "portfolio-starter",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "My personal portfolio website.",
     "main": "dist/bundle.js",
     "scripts": {
